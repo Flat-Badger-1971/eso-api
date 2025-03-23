@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
+  "words": [
+    "EVENT_ADDON_LOADED",
+    "RegisterForEvent",
+    "EVENT_MANAGER"
+  ],
+  "files": [
+    "%.lua$"
+  ],
+  "settings": {
+    "Lua.diagnostics.disable": [
+      "assign-type-mismatch",
+      "inject-field",
+      "param-type-mismatch"
+    ],
+    "Lua.diagnostics.libraryFiles": "Disable",
+    "Lua.diagnostics.neededFileStatus": {
+      "codestyle-check": "Any"
+    },
+    "Lua.hint.enable": true,
+    "Lua.runtime.version": "Lua 5.1",
+    "Lua.workspace.preloadFileSize": 700
+  }
+}

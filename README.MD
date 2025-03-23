@@ -1,8 +1,8 @@
 # eso-api
 
-This is an addon for the Lua extension by Sumneko that adds intellisense features to **VS Code** for the **Elder Scrolls Online®** API.
+This is an addon for the `Lua` extension by Sumneko that adds intellisense features to **Visual Studio Code** for the **Elder Scrolls Online®** API.
 
-This is similar to (and inspired by) Baertram's [ESOUI lua API autocompletion for JetBrains](https://www.esoui.com/downloads/info2654-ESOUIluaAPIautocompletionforJetBrainsIntelliJIDEAIDEEmmyLuapluginesouisourcessearch.html), but designed to work in VSCode.
+This is similar to (and inspired by) Baertram's [ESOUI lua API autocompletion for JetBrains](https://www.esoui.com/downloads/info2654-ESOUIluaAPIautocompletionforJetBrainsIntelliJIDEAIDEEmmyLuapluginesouisourcessearch.html), but designed to work in VS Code.
 
 ## Requirements
 
@@ -20,10 +20,9 @@ This is similar to (and inspired by) Baertram's [ESOUI lua API autocompletion fo
     "[lua]": {
         "editor.defaultFormatter": "sumneko.lua"
     },
-    "Lua.runtime.version": "Lua 5.1",
     "editor.formatOnSave": true
 ```
-4. Create a folder on your machine to contain addons (for the **Lua** extension). This can be anywhere you like.
+4. Create a folder on your machine to contain addons (for the `Lua` extension). This can be anywhere you like.
 5. Download the required release from [here](https://github.com/Flat-Badger-1971/eso-api/releases), and extract the contents into the folder you just created. The structure should look like this:
 ```
 MyAddonsFolder
@@ -53,7 +52,7 @@ zoclasses.min
 If you want to use the min version for better initial performance, rename `zoclasses.lua` to `zoclasses.max`, then rename `zoclasses.min` to `zoclasses.lua`. After that, restart your VS Code instance if you have one running.
 
 ### For each ESO Addon project
-1. Optional - create a folder called `esoapi` and add a file within that folder called `local.lua` - add the following into that file:
+1. Optional - create a folder called `esoapi` in the root of your addon project folder. Add a file within that folder called `local.lua` - add the following into that file:
 ```
 --- @meta
 --- @diagnostics disable

@@ -1,4 +1,4 @@
-# <font color="#FFE0B2">eso-api</font>
+# ${{\color{Apricot}{eso-api}}}\$
 ${{\color{Goldenrod}\Huge{\textsf{  Hi\ there\ \}}}}\$
 
 This is an addon for the `Lua` extension by Sumneko that adds intellisense features to **Visual Studio Code** for the **Elder Scrolls Online®** API.

@@ -1,4 +1,4 @@
-<h1 style="color: Apricot;">eso-api</h1>
+<h1 style="color: #FFE0B2;">eso-api</h1>
 
 This is an addon for the `Lua` extension by Sumneko that adds intellisense features to **Visual Studio Code** for the **Elder Scrolls Online®** API.
 

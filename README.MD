@@ -1,5 +1,4 @@
-# ${{\color{Apricot}{eso-api}}}\$
-${{\color{Goldenrod}\Huge{\textsf{  Hi\ there\ \}}}}\$
+# ${{\color{Apricot}{\textnormal{eso-api}}}}$
 
 This is an addon for the `Lua` extension by Sumneko that adds intellisense features to **Visual Studio Code** for the **Elder Scrolls Online®** API.
 

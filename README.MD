@@ -1,4 +1,5 @@
 # <font color="#FFE0B2">eso-api</font>
+<code style="color : Aquamarine">Test</code>
 
 This is an addon for the `Lua` extension by Sumneko that adds intellisense features to **Visual Studio Code** for the **Elder Scrolls Online®** API.
 
@@ -77,7 +78,7 @@ You may also see a large number of errors being displayed in VS Code's *Problems
 ### <font color="#C8E6C9">Optional Steps</font>
 Globals that are not part of the API, such as ESO libraries or localisation constants, will not be handled by the above setup and will instead by flagged as `undefined-global` or `undefined-field` errors. To get around this you can do the following:
 
-#### <font color="#B3E5FC">Step 1</font>
+#### $\color{green}{Step 1}
 Create a folder called `esoapi` in the root of your addon project folder, this can actually be any name you like, we're just using esoapi as an example. 
 
 #### <font color="#B3E5FC">Step 2</font>

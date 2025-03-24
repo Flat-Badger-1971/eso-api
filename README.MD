@@ -1,10 +1,10 @@
-# ${{\color{Apricot}{\textnormal{eso-api}}}}$
+<h1 style="color: Apricot;">eso-api</h1>
 
 This is an addon for the `Lua` extension by Sumneko that adds intellisense features to **Visual Studio Code** for the **Elder Scrolls Online®** API.
 
 This is similar to (and inspired by) Baertram's [ESOUI lua API autocompletion for JetBrains](https://www.esoui.com/downloads/info2654-ESOUIluaAPIautocompletionforJetBrainsIntelliJIDEAIDEEmmyLuapluginesouisourcessearch.html), but designed to work in VS Code.
 
-## <font color="#FFE0B2">Requirements</font>
+## ${{\color{Apricot}{\textnormal{Requirements}}}}$
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Lua](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) extension by Sumneko

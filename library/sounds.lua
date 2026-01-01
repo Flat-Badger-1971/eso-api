@@ -13,6 +13,8 @@ SOUNDS =
     MENU_BAR_CLICK                  = "Click_MenuBar",
     TREE_HEADER_CLICK               = "Click_TreeHeader",
     TREE_SUBCATEGORY_CLICK          = "Click_TreeSubcategory",
+    LOGIN_SETTINGS_SCREEN_TAB_CLICK = "Click_LoginSettingsScreen_Tab",
+    LOGIN_SCREEN_TAB_CLICK          = "Click_LoginScreen_Tab",
 
     -- Window Sounds
     DEFAULT_WINDOW_OPEN             = "Window_Open",
@@ -99,6 +101,9 @@ SOUNDS =
     -- Spinner Sounds
     SPINNER_UP                      = "Spinner_Up",
     SPINNER_DOWN                    = "Spinner_Down",
+
+    -- Character Select Sounds
+    CS_SELECT                       = "CS_Select",
 
     --character create sounds
     CC_SELECTOR_CLICK               = "Click_CC_Selector",
@@ -276,8 +281,9 @@ SOUNDS =
     GROUP_KICK                      = "Group_Kick",
     GROUP_DISBAND                   = "Group_Disband",
     GROUP_PROMOTE                   = "Group_Promote",
-    GROUP_ROLE_SELECTED             = "Click",
-    GROUP_ROLE_DESELECTED           = "Click",
+    GROUP_ROLE_DPS_SELECTED         = "Group_Role_DPS_Click",
+    GROUP_ROLE_TANK_SELECTED        = "Group_Role_Tank_Click",
+    GROUP_ROLE_HEAL_SELECTED        = "Group_Role_Heal_Click",
 
     --LFG sounds
     LFG_SEARCH_STARTED              = "LFG_Search_Started",
@@ -380,6 +386,9 @@ SOUNDS =
     GUILD_KEEP_LOST = "Guild_Keep_Lost",
 
     CAMPAIGN_READY_CHECK = "Campaign_Ready_Check",
+    CAMPAIGN_ENTER_CAMPAIGN = "Campaign_Enter_Campaign",
+    CAMPAIGN_QUEUE_CAMPAIGN = "Campaign_Queue_Campaign",
+    CAMPAIGN_LEAVE_CAMPAIGN = "Campaign_Leave_Campaign",
 
     -- Broadcast sounds
     MESSAGE_BROADCAST               = "System_Broadcast",
@@ -508,6 +517,7 @@ SOUNDS =
 
     --General Settings Sounds
     SINGLE_SETTING_RESET_TO_DEFAULT = "Single_Setting_Reset",
+    LOGIN_SCREEN_EXIT_SETTINGS      = "Login_Screen_Exit_Settings",
 
     --Radial Menu Sounds
     RADIAL_MENU_OPEN                = "Radial_Menu_Open",
@@ -533,6 +543,16 @@ SOUNDS =
 
     --Skills Advisor Sounds
     SKILLS_ADVISOR_SELECT           = "SkillsAdvisor_Select",
+
+    --Skills Subclassing
+    SKILLS_SUBCLASSING_SWAP_SKILL_LINE_CONFIRM = "SkillsSubclassingSwapSkillLine_Confirm",
+    SKILLS_SUBCLASSING_TRAIN        = "SkillsSubclassing_Train",
+    SKILLS_SUBCLASSING_UNTRAIN      = "SkillsSubclassing_Untrain",
+    SKILLS_SUBCLASSING_SKILL_LINE_SELECT = "SkillsSubclassing_SkillLine_Select",
+    SKILLS_SUBCLASSING_SKILL_LINE_BACK = "SkillsSubclassing_SkillLine_Back",
+
+    --Skills
+    SKILLS_ENTER_RESPEC_MODE        = "Skills_Enter_Respec_Mode",
 
     --Stats Sounds
     STATS_PURCHASE                  = "Stats_Purchase",
@@ -995,7 +1015,6 @@ SOUNDS =
     GUILD_FINDER_SELECT_GUILD               = "GuildFinder_SelectGuild",
     GUILD_FINDER_BACK_FROM_SELECTED_GUILD   = "GuildFinder_BackFromSelectedGuild",
     GAMEPAD_GUILD_FINDER_TOGGLE_ACTIVITY    = "Gamepad_GuildFinder_ToggleActivity",
-    GAMEPAD_GUILD_FINDER_TOGGLE_ROLE        = "Gamepad_GuildFinder_ToggleRole",
 
     --Daedric Artifacts
     DAEDRIC_ENERGY_BURST                    = "DaedricEnergy_Burst",
@@ -1112,6 +1131,7 @@ SOUNDS =
     GROUP_FINDER_REFRESH_SEARCH = "GroupFinder_RefreshSearch",
     GROUP_FINDER_APPLICATION_NOTIFICATION = "GroupFinder_ApplicationNotification",
     GROUP_FINDER_GROUP_LISTING_CREATE_EDIT = "GroupFinder_GroupListing_CreateEdit",
+    GROUP_FINDER_GROUP_LISTING_REMOVE = "GroupFinder_GroupListing_Remove",
 
     -- House Tours
     HOUSE_TOURS_ADDED_FAVORITE_HOUSE = "HouseTours_FavoriteHouseAdded",
@@ -1130,4 +1150,21 @@ SOUNDS =
     PROMOTIONAL_EVENT_CLAIM_CAPSTONE_REWARD = "PromotionalEvent_ClaimCapstoneReward",
     PROMOTIONAL_EVENT_CAPSTONE_CELEBRATION_HEADER_CLICK = "PromotionalEvent_CapstoneCelebrationHeader_Click",
     PROMOTIONAL_EVENT_REWARD_TO_CLAIM_PROMPT = "PromotionalEvent_RewardToClaim_Prompt",
+
+    -- Returning Player
+    RETURNING_PLAYER_OPEN_KEYBOARD = "ReturningPlayer_Open",
+    RETURNING_PLAYER_CLOSE_KEYBOARD = "ReturningPlayer_Close",
+    RETURNING_PLAYER_OPEN_GAMEPAD = "Console_ReturningPlayer_Open",
+    RETURNING_PLAYER_CLOSE_GAMEPAD = "Console_ReturningPlayer_Close",
+    RETURNING_PLAYER_ENTER_INTRO_GAMEPLAY = "HerosReturn_Enter",
+
+    -- Vengeance
+    VENGEANCE_LOADOUT_EQUIPPED = "VengeanceLoadoutEquipped",
+    VENGEANCE_LOADOUT_SELECTED = "VengeanceLoadoutSelected",
+    VENGEANCE_LOADOUT_EQUIPPED_ANNOUNCEMENT = "VengeanceLoadoutEquipped_Announcement",
+    VENGEANCE_PERK_EQUIPPED = "VengeancePerkEquipped",
+    VENGEANCE_PERK_UNEQUIPPED = "VengeancePerkUnequipped",
+    VENGEANCE_PERK_PICKUP = "VengeancePerkPickup",
+    VENGEANCE_PERK_DROP = "VengeancePerkDrop",
+    VENGEANCE_CHANGE_LOADOUT_PROMPT = "VengeanceChangeLoadoutPrompt",
 }

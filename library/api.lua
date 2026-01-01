@@ -127,6 +127,11 @@ function GetFeedbackType(feedbackId) end
 --- @return bool
 function GetIsQuestSharable(journalQuestIndex) end
 
+--- @param firstId id64
+--- @param secondId id64
+--- @return bool
+function AreId64sEqual(firstId, secondId) end
+
 --- @param pinType MapDisplayPinType
 --- @param continuousUpdate bool
 --- @param param1 integer
@@ -270,7 +275,7 @@ function GetMailIdByIndex(category, index) end
 
 --- @param normalizedMouseX number
 --- @param normalizedMouseY number
---- @return string, string, number, number, number, number
+--- @return string, string, number, number, number, number, integer
 function GetMapMouseoverInfo(normalizedMouseX, normalizedMouseY) end
 
 --- @return integer|nil
@@ -323,6 +328,9 @@ function GenerateCraftedAbilityScriptSlotDescriptionForAbilityDescription(abilit
 --- @param isExpectingUpdates bool
 --- @return void
 function RequestSetGroupFinderExpectingUpdates(isExpectingUpdates) end
+
+--- @return void
+function ClearWarnConsoleAddOnMemoryLimit() end
 
 --- @param fontName string
 --- @param fontStyle FontStyle
@@ -405,6 +413,9 @@ function GetGamepadLeftStickX(includeDeadzone) end
 --- @param collectibleId integer
 --- @return integer
 function GetCollectibleFurnitureDataId(collectibleId) end
+
+--- @return bool
+function CanRerollCurrentBuffSelectorOptions() end
 
 --- @param combinationId integer
 --- @return bool
@@ -554,6 +565,10 @@ function GetGroupFinderFilterNumPrimaryOptions() end
 --- @return bool
 function CanQuickslotQuestItemById(questItemId) end
 
+--- @param activeSpectacleEventIndex luaindex
+--- @return integer
+function GetActiveSpectacleEventId(activeSpectacleEventIndex) end
+
 --- @param timeMS integer
 --- @return HousingPathDelayTime
 function HousingEditorGetPathNodeValueFromDelayTime(timeMS) end
@@ -617,6 +632,9 @@ function GetCollectibleGamepadBackgroundImage(collectibleId) end
 --- @param collectibleId integer
 --- @return SpecializedCollectibleType
 function GetSpecializedCollectibleType(collectibleId) end
+
+--- @return bool
+function DoesPlatformSupportScreenDimAndResolutionDrop() end
 
 --- @param chatContainerIndex luaindex
 --- @param tabIndex luaindex
@@ -697,9 +715,17 @@ function GetCollectibleCategoryType(collectibleId) end
 --- @return integer
 function GetNumCampaignRulesetTypes() end
 
+--- @param campaignKey id64
+--- @param activityIndex luaindex
+--- @return string
+function GetPromotionalEventCampaignActivityDescription(campaignKey, activityIndex) end
+
 --- @param activitySetId integer
 --- @return bool, integer
 function DoesActivitySetPassAvailablityRequirementList(activitySetId) end
+
+--- @return string
+function GetReturningPlayerIntroGameplayDisplayName() end
 
 --- @param index luaindex
 --- @return integer
@@ -739,6 +765,11 @@ function SendOutfitChangeRequest(useFlatCurrency, actorCategory, outfitIndex, ou
 --- @return string, bool
 function GetGroupFinderUserTypeGroupListingSecondaryOptionByIndex(userType, index) end
 
+--- @param skillType SkillType
+--- @param skillLineIndex luaindex
+--- @return integer
+function GetSkillLineClassId(skillType, skillLineIndex) end
+
 --- @param depth number
 --- @return number, number
 function GetWorldDimensionsOfViewFrustumAtDepth(depth) end
@@ -755,6 +786,9 @@ function SplitString(delims, stringToSplit) end
 --- @param slotIndex integer
 --- @return bool
 function IsItemFromCrownCrate(bagId, slotIndex) end
+
+--- @return bool
+function HasReceivedPromotionalEventUpdate() end
 
 --- @return bool
 function CanSmithingWeaponPatternsBeCraftedHere() end
@@ -826,6 +860,10 @@ function GenerateMasterWritRewardText(itemLink) end
 --- @return string
 function GetPlayerActiveZoneName() end
 
+--- @param classId integer
+--- @return integer
+function GetNumSkillLinesForClass(classId) end
+
 --- @param index luaindex
 --- @return string
 function GetGroupFinderSearchListingTitleByIndex(index) end
@@ -842,8 +880,9 @@ function GetCollectibleLinkedAchievement(collectibleId) end
 
 --- @param campaignKey id64
 --- @param milestoneIndex luaindex
+--- @param choiceId integer|nil
 --- @return void
-function TryClaimPromotionalEventMilestoneReward(campaignKey, milestoneIndex) end
+function TryClaimPromotionalEventMilestoneReward(campaignKey, milestoneIndex, choiceId) end
 
 --- @param journalQuestIndex luaindex
 --- @param stepIndex luaindex
@@ -916,6 +955,10 @@ function PreviewDyeStampByItemLink(itemLink) end
 --- @return void
 function ChromaCreateMouseReactiveEffect(reactionDuration, red, green, blue) end
 
+--- @param campaignKey id64
+--- @return bool
+function ShouldPromotionalEventCampaignBeVisible(campaignKey) end
+
 --- @param outfitSlot OutfitSlot
 --- @return integer
 function GetOutfitSlotDataHiddenOutfitStyleCollectibleId(outfitSlot) end
@@ -925,6 +968,10 @@ function GetOutfitSlotDataHiddenOutfitStyleCollectibleId(outfitSlot) end
 --- @param traitIndex luaindex
 --- @return bool
 function IsAlchemyItemTraitKnown(reagentBagId, reagentSlotIndex, traitIndex) end
+
+--- @param marketProductId integer
+--- @return integer
+function GetMarketProductUnlockedByCollectibleIds(marketProductId) end
 
 --- @param itemLink string
 --- @param equipSlot EquipSlot
@@ -943,6 +990,9 @@ function GetGroupFinderFilterChampionPoints() end
 --- @return void
 function SelectPlayerStatus(status) end
 
+--- @return id64
+function TryAutoTrackNextPromotionalEventActivity() end
+
 --- @param index luaindex
 --- @return TimedActivityDifficulty
 function GetTimedActivityDifficulty(index) end
@@ -956,6 +1006,14 @@ function ChromaCreateHeadsetBreathingEffect(red, green, blue) end
 --- @param patronId integer
 --- @return textureName
 function GetTributePatronSmallIcon(patronId) end
+
+--- @param activeSpectacleEventId integer
+--- @return string
+function GetActiveSpectacleEventPhaseDisplayName(activeSpectacleEventId) end
+
+--- @param addOnIndex luaindex
+--- @return void
+function DeleteSavedVariablesForAddonIndex(addOnIndex) end
 
 --- @param unitTag string
 --- @return bool
@@ -1077,6 +1135,10 @@ function IsInteractingWithMyAssistant() end
 --- @return void
 function StrafeLeftStart() end
 
+--- @param activeSpectacleEventId integer
+--- @return string
+function GetActiveSpectacleEventPhaseDescription(activeSpectacleEventId) end
+
 --- @param categoryIndex luaindex
 --- @return integer
 function GetNumFurnitureSubcategories(categoryIndex) end
@@ -1130,8 +1192,9 @@ function GetMarketProductCrownCrateTierId(marketProductId) end
 --- @param mapDisplayType MapDisplayType
 --- @param normalizedX number
 --- @param normalizedZ number
+--- @param mapDisplay object
 --- @return void
-function PingMap(pingType, mapDisplayType, normalizedX, normalizedZ) end
+function PingMap(pingType, mapDisplayType, normalizedX, normalizedZ, mapDisplay) end
 
 --- @param waveDirection ChromaMouseWaveEffectDirection
 --- @return void
@@ -1185,6 +1248,9 @@ function GetNumTimedActivitiesCompleted(activityType) end
 --- @param entryIndex luaindex
 --- @return integer, bool
 function GetStoreCollectibleInfo(entryIndex) end
+
+--- @return number
+function GetTotalUserAddOnMemoryPoolCapacityMB() end
 
 --- @param index luaindex
 --- @return bool
@@ -1362,6 +1428,10 @@ function SecurePostHook(targetTable, funcName, hookingFunction) end
 --- @return string
 function GetRecipeResultItemLink(recipeListIndex, recipeIndex, linkStyle) end
 
+--- @param questIndex luaindex
+--- @return string, InterfaceColorType, integer
+function GenerateQuestNameTooltipLine(questIndex) end
+
 --- @param SCTEventVisualInfoId integer
 --- @param textType SCTEventTextType
 --- @param format string
@@ -1488,6 +1558,10 @@ function GetKeepUpgradeLineFromUpgradePath(upgradePath) end
 --- @return integer, integer, string, string
 function GetGuildKioskActiveBidInfo(guildId, index) end
 
+--- @param activeSpectacleEventId integer
+--- @return string
+function GetActiveSpectacleEventDisplayName(activeSpectacleEventId) end
+
 --- @return integer
 function GetTimeUntilStuckAvailable() end
 
@@ -1563,6 +1637,10 @@ function HasShownMarketAnnouncement() end
 --- @param improvementItemIndex luaindex
 --- @return integer
 function GetSmithingGuaranteedImprovementItemAmount(craftingSkillType, improvementItemIndex) end
+
+--- @param bagId Bag
+--- @return bool
+function IsFurnitureVault(bagId) end
 
 --- @return PathFollowType
 function HousingEditorGetSelectedFurniturePathFollowType() end
@@ -1861,7 +1939,7 @@ function IsCurrentlySearchingForGroup() end
 --- @param skillIndex luaindex
 --- @param morphChoice integer
 --- @param rank integer
---- @return integer, luaindex
+--- @return integer, luaindex, integer
 function GetSpecificSkillAbilityInfo(skillType, skillLineIndex, skillIndex, morphChoice, rank) end
 
 --- @param abilityId integer
@@ -1945,6 +2023,9 @@ function IsPlayerInGuild(guildId) end
 --- @return integer, integer
 function GetTimedActivityRewardInfo(index, rewardIndex) end
 
+--- @return bool
+function DoesPlatformSupportSpatialSoundQuality() end
+
 --- @param marketProductId integer
 --- @private
 --- @return OpenMarketBehavior
@@ -1981,6 +2062,10 @@ function GetAbilityIcon(abilityId) end
 --- @param favorState TributePatronPerspectiveFavorState
 --- @return integer
 function GetNumTributePatronPassiveMechanicsForFavorState(patronId, favorState) end
+
+--- @param currencyType CurrencyType
+--- @return bool
+function ShouldShowCurrencyInCurrencyPanel(currencyType) end
 
 --- @param guildId integer
 --- @param minimumCP integer
@@ -2024,6 +2109,14 @@ function GetCraftingInteractionType() end
 --- @return integer, integer, bool
 function GetSCTEventVisualInfoTextFontSizes(SCTEventVisualInfoId, textType) end
 
+--- @param itemLink string
+--- @return bool
+function IsItemLinkVisuallyDisabledInVengeance(itemLink) end
+
+--- @param mediumId integer
+--- @return textureName, integer, integer, integer, integer, integer, integer, string, string, string
+function GetBookMediumInfo(mediumId) end
+
 --- @param activitySetId integer
 --- @return string, string, integer
 function GetActivitySetInfo(activitySetId) end
@@ -2036,11 +2129,26 @@ function IsAbilityPermanent(abilityId) end
 --- @return void
 function ChromaCreateKeyboardWaveEffect(waveDirection) end
 
+--- @param roleIndex luaindex
+--- @param statIndex luaindex
+--- @return VengeanceMiscStat, number, number, DerivedStatDisplayType
+function GetImportantMiscStatDisplayInfoForRoleAtIndex(roleIndex, statIndex) end
+
 --- @return number
 function GetSettingChamberStress() end
 
 --- @return bool
 function IsMinSpecMachine() end
+
+--- @param abilityId integer
+--- @protected
+--- @return void
+function PickupAbilityById(abilityId) end
+
+--- @param characterOrDisplayName string
+--- @param consoleId id64
+--- @return bool
+function CanCommunicateWith(characterOrDisplayName, consoleId) end
 
 --- @param level integer
 --- @return integer
@@ -2419,6 +2527,10 @@ function GetFurnitureCategoryName(furnitureCategoryId) end
 --- @return UnitReactionType
 function GetUnitReaction(unitTag) end
 
+--- @param campaignId integer
+--- @return id64|nil
+function GetCampaignKeyForNextReturningPlayerCampaign(campaignId) end
+
 --- @param zoneId integer
 --- @return integer
 function GetZoneStoryZoneIdForZoneId(zoneId) end
@@ -2610,12 +2722,22 @@ function GetAbilityDuration(abilityId, overrideRank, casterUnitTag) end
 --- @return number
 function GetPlayerCameraHeading() end
 
+--- @param suppressionType ItemBonusSuppressionType
+--- @param refId integer
+--- @return string
+function GetItemBonusSuppressionName(suppressionType, refId) end
+
 --- @return integer, integer
 function GetMinMaxRamEscorts() end
 
 --- @param campaignId integer
 --- @return integer
 function GetSecondsUntilCampaignEnd(campaignId) end
+
+--- @param perkIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return textureName
+function GetVengeancePerkIconAtIndex(perkIndex, roleIndex) end
 
 --- @param leaderboardType BattlegroundLeaderboardType
 --- @return integer, integer
@@ -2679,7 +2801,7 @@ function ShouldShowLeaderboardForBattlegroundLeaderboardType(battlegroundLeaderb
 --- @param categoryIndex luaindex
 --- @param collectionIndex luaindex
 --- @param bookIndex luaindex
---- @return string, BookMedium, bool
+--- @return string, integer, bool
 function ReadLoreBook(categoryIndex, collectionIndex, bookIndex) end
 
 --- @param recipeListIndex luaindex
@@ -2822,10 +2944,6 @@ function GetCampaignRulesetImperialKeepId(rulesetId, alliance, index) end
 --- @return integer
 function GetSmithingRefinementMinRawMaterial() end
 
---- @param itemSetId integer
---- @return string
-function GetItemSetSuppressionName(itemSetId) end
-
 --- @param rewardId integer
 --- @return integer
 function GetCollectibleRewardCollectibleId(rewardId) end
@@ -2841,6 +2959,10 @@ function ChromaCreateKeypadReactiveEffect(reactionDuration, red, green, blue) en
 --- @param bidAmount integer
 --- @return void
 function GuildKioskBid(guildId, bidAmount) end
+
+--- @param campaignKey id64
+--- @return AnnouncementBannerOverrideType
+function GetPromotionalEventCampaignAnnouncementBannerOverrideType(campaignKey) end
 
 --- @param nonCombatBonus NonCombatBonusType
 --- @return integer
@@ -2898,9 +3020,8 @@ function GetNumEndlessDungeonDuoLeaderboardEntries(endlessDungeonId) end
 --- @return string
 function GetAbilityName(abilityId, casterUnitTag) end
 
---- @param classId integer
 --- @return integer
-function GetNumEndlessDungeonOfTheWeekSoloLeaderboardEntries(classId) end
+function GetNumEndlessDungeonOfTheWeekSoloLeaderboardEntries() end
 
 --- @param searchString string
 --- @param forceRefresh bool
@@ -3146,9 +3267,17 @@ function WouldCollectibleBeHidden(collectibleId, actorCategory) end
 --- @return integer
 function GetScribingCollectibleId() end
 
+--- @param currencyType CurrencyType
+--- @return string
+function GetCurrencyTransactUISound(currencyType) end
+
 --- @param buildIndex luaindex
 --- @return void
 function SaveArmoryBuild(buildIndex) end
+
+--- @param channelCategory ChatChannelCategories
+--- @return bool
+function IsChannelCategoryCommunicationRestricted(channelCategory) end
 
 --- @param itemType ItemType
 --- @return integer
@@ -3195,8 +3324,15 @@ function IsSmithingTraitKnownForPattern(patternIndex, traitType) end
 --- @return integer, luaindex
 function GetLootTributeCardUpgradeInfo(lootId) end
 
+--- @return number
+function GetTotalUserAddOnMemoryPoolUsageMB() end
+
 --- @return HousingRequestResult
 function HousingEditorRequestRestartAllFurniturePaths() end
+
+--- @param skillLineId integer
+--- @return bool
+function IsPlayerClassSkillLineById(skillLineId) end
 
 --- @return integer|nil
 function GetHeraldryGuildBankedMoney() end
@@ -3227,8 +3363,16 @@ function AddPendingNarrationText(text) end
 --- @return void
 function RequestRemoveGroupListing() end
 
+--- @param activeSpectacleEventId integer
+--- @return number
+function GetActiveSpectacleEventPhaseProgressPercentage(activeSpectacleEventId) end
+
 --- @return void
 function ToggleGameCameraFirstPerson() end
+
+--- @param activeSpectacleEventId integer
+--- @return bool
+function CanAcceptActiveSpectacleEventQuest(activeSpectacleEventId) end
 
 --- @return integer, integer, integer
 function GetGameCameraInteractableUnitAudioInfo() end
@@ -3257,6 +3401,11 @@ function UnbindAllKeysFromAction(layerIndex, categoryIndex, actionIndex) end
 --- @param itemSetId integer
 --- @return integer
 function GetItemSetUnperfectedSetId(itemSetId) end
+
+--- @param derivedStat DerivedStats
+--- @param roleIndex luaindex
+--- @return integer
+function GetDerivedStatValueForRoleAtIndex(derivedStat, roleIndex) end
 
 --- @param userType GroupFinderGroupListingUserType
 --- @return void
@@ -3568,6 +3717,11 @@ function GetGameCameraInteractableActionInfo() end
 --- @return integer
 function GetNumAdditionalLevelUpUnlocks(level) end
 
+--- @param activeSpectacleEventId integer
+--- @param activeSpectacleEventPhaseId integer
+--- @return string, string
+function GetSpectacleEventPhaseStartedAnnouncementInfo(activeSpectacleEventId, activeSpectacleEventPhaseId) end
+
 --- @param onlyConsiderWhileMoving bool
 --- @return void
 function ShowMouse(onlyConsiderWhileMoving) end
@@ -3643,6 +3797,9 @@ function GetFrameDeltaTimeMilliseconds() end
 --- @param categoryId integer
 --- @return textureName, textureName, textureName
 function GetItemSetCollectionCategoryKeyboardIcons(categoryId) end
+
+--- @return void
+function ClaimCurrentReturningPlayerDailyLoginReward() end
 
 --- @param lastAbilityId integer|nil
 --- @return integer|nil, integer|nil
@@ -3820,6 +3977,11 @@ function GetNumStoreEntryPreviewCollectibleActions(entryIndex, variation) end
 --- @return number
 function GetTradingHouseCutPercentage() end
 
+--- @param aSlotFlag VengeancePerkSlotFlags
+--- @param roleIndex luaindex|nil
+--- @return integer
+function GetNumberOfPerksAvailableToLoadoutRoleDefInSlot(aSlotFlag, roleIndex) end
+
 --- @param campaignId integer
 --- @return Alliance, string, string
 function GetCampaignEmperorInfo(campaignId) end
@@ -3974,6 +4136,10 @@ function GetCampaignRulesetNumImperialKeeps(rulesetId, alliance) end
 --- @return BuffType
 function GetAbilityBuffType(abilityId, casterUnitTag) end
 
+--- @param synergyIndex luaindex
+--- @return bool
+function CanUseSynergyAtIndex(synergyIndex) end
+
 --- @param keepId integer
 --- @param objectiveId integer
 --- @param battlegroundContext BattlegroundQueryContextType
@@ -4006,6 +4172,10 @@ function IsMaxTelvarStoneMultiplierThreshold(thresholdIndex) end
 --- @return string, luaindex|nil, luaindex|nil
 function GetMarketProductClaimGiftNoticeInfo(marketProductId) end
 
+--- @param defId integer
+--- @return textureName
+function GetVengeanceRoleIcon(defId) end
+
 --- @param target string
 --- @return void
 function TradeInvite(target) end
@@ -4013,6 +4183,11 @@ function TradeInvite(target) end
 --- @param index luaindex
 --- @return string, integer, integer, integer, bool, bool, Alliance, string, string
 function GetKillingAttackerInfo(index) end
+
+--- @param synergyIndex luaindex
+--- @private
+--- @return ClientUseAbilityResult
+function ActivateSynergyAtIndex(synergyIndex) end
 
 --- @param helpCategoryIndex luaindex
 --- @param helpIndex luaindex
@@ -4088,6 +4263,9 @@ function FormatAchievementLinkTimestamp(timestamp) end
 --- @return string, ItemTagCategory
 function GetItemLinkItemTagInfo(itemLink, itemTagIndex) end
 
+--- @return luaindex|nil
+function GetReturningPlayerDailyLoginClaimableRewardIndex() end
+
 --- @param CVarName string
 --- @param value string
 --- @return void
@@ -4096,6 +4274,11 @@ function SetCVar(CVarName, value) end
 --- @param rewardIndex luaindex
 --- @return MarketProductType, integer
 function GetCrownCrateRewardProductReferenceData(rewardIndex) end
+
+--- @param bagId Bag
+--- @param slotIndex integer
+--- @return bool
+function IsItemVisuallyDisabledInVengeance(bagId, slotIndex) end
 
 --- @return integer
 function GetLocalPlayerBattlegroundLivesRemaining() end
@@ -4394,6 +4577,10 @@ function IsInstanceEndlessDungeon() end
 --- @return integer
 function GetQueuedMoneyAttachment() end
 
+--- @param itemTraitType ItemTraitType
+--- @return ItemBonusSuppressionType, integer
+function GetItemTraitSuppressionInfo(itemTraitType) end
+
 --- @param userType GroupFinderGroupListingUserType
 --- @return integer
 function GetGroupFinderUserTypeGroupListingNumPrimaryOptions(userType) end
@@ -4414,9 +4601,8 @@ function CanBuyFromTradingHouse(guildId) end
 --- @return bool
 function DoesPlayerHaveLockpickingCompanionBonus() end
 
---- @param classId integer
 --- @return integer
-function GetNumChallengeOfTheWeekLeaderboardEntries(classId) end
+function GetNumChallengeOfTheWeekLeaderboardEntries() end
 
 
 --- @private
@@ -4479,6 +4665,9 @@ function GetRecipeListInfo(recipeListIndex) end
 --- @param thresholdIndex luaindex|nil
 --- @return integer
 function GetTelvarStoneThresholdAmount(thresholdIndex) end
+
+--- @return bool
+function ShouldShowReturningPlayerLeaveIntroPrompt() end
 
 --- @param role LFGRole
 --- @return void
@@ -4546,10 +4735,9 @@ function GetItemLinkComparisonEquipSlots(itemLink) end
 function SetFloatingMarkerInfo(markerType, size, primaryTexturePath, secondaryTexturePath, primaryPulses, secondaryPulses) end
 
 --- @param endlessDungeonId integer
---- @param classId integer
 --- @param entryIndex luaindex
 --- @return integer, string, integer, integer, string, integer, integer, integer
-function GetEndlessDungeonSoloLeaderboardEntryInfo(endlessDungeonId, classId, entryIndex) end
+function GetEndlessDungeonSoloLeaderboardEntryInfo(endlessDungeonId, entryIndex) end
 
 --- @return bool
 function HasSynergyEffects() end
@@ -4668,6 +4856,9 @@ function GetGuildInviteeInfo(guildId, inviteeIndex) end
 --- @private
 --- @return void
 function DescendStop() end
+
+--- @return void
+function ClearAllSynergyPriorityOverrides() end
 
 --- @param guildId integer
 --- @param eventIndex luaindex
@@ -4824,6 +5015,14 @@ function PickupCollectible(collectibleId) end
 --- @return id64, luaindex|nil
 function HousingEditorGetTargetInfo() end
 
+--- @param guildId integer|nil
+--- @return void
+function DumpGuildHistoryChunkInformation(guildId) end
+
+--- @param journalQuestIndex luaindex
+--- @return integer
+function GetJournalQuestId(journalQuestIndex) end
+
 --- @param activity LFGActivity
 --- @return integer
 function GetActivityTypeGatingQuest(activity) end
@@ -4859,6 +5058,9 @@ function GetTrialChatRestriction(channel, target) end
 --- @param battlegroundContext integer
 --- @return bool
 function IsAssignedBattlegroundContext(battlegroundContext) end
+
+--- @return integer
+function GetNumReturningPlayerDailyLoginRewardsClaimed() end
 
 --- @param currencyType CurrencyType
 --- @return textureName
@@ -5148,6 +5350,12 @@ function RequestReadPendingNarrationTextToClient(narrationType) end
 --- @return HousingRequestResult
 function HousingEditorRequestModifyPathNode(furnitureId, index, worldX, worldY, worldZ, headingRadians, speed, reachDestinationDelayTime) end
 
+--- @param slotFlag VengeancePerkSlotFlags
+--- @param slotIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return luaindex
+function GetPerkIndexForSlotAtSlotIndex(slotFlag, slotIndex, roleIndex) end
+
 --- @param achievementId integer
 --- @return id64
 function GetAchievementProgress(achievementId) end
@@ -5284,10 +5492,21 @@ function IsPlayerInGroup(characterOrDisplayName) end
 --- @return string
 function GetSmithingPatternMaterialItemLink(patternIndex, materialIndex, linkStyle) end
 
+--- @return SubclassingAccessLevel
+function GetSubclassingAccessLevel() end
+
+--- @param itemLink string
+--- @return bool
+function CanItemLinkBeUsedToLearn(itemLink) end
+
 --- @param guildId integer
 --- @param index luaindex
 --- @return GuildBlacklistResponse
 function RemoveFromGuildBlacklist(guildId, index) end
+
+--- @param activeSpectacleEventId integer
+--- @return bool
+function IsCurrentActiveSpectacleEventPhaseComplete(activeSpectacleEventId) end
 
 --- @param patronId integer
 --- @return bool
@@ -5417,6 +5636,9 @@ function HousingEditorToggleSelectedFurniturePathState() end
 --- @return bool
 function IsPlayerInWerewolfForm() end
 
+--- @return integer
+function GetNumberOfVengeanceRolesAvailableToPlayer() end
+
 --- @param actionName string
 --- @param bindingIndex luaindex
 --- @return bool
@@ -5455,6 +5677,11 @@ function BitAnd(valueA, valueB) end
 --- @return bool
 function IsActiveWorldBattleground() end
 
+--- @param mediumId integer
+--- @param isGamepad bool
+--- @return string, integer, FontStyle, string, integer, FontStyle, number, number, number, number, number, number, number, number
+function GetBookMediumFontInfo(mediumId, isGamepad) end
+
 --- @param categoryType CollectibleCategoryType
 --- @param userFlags CollectibleUserFlags
 --- @return bool
@@ -5489,6 +5716,10 @@ function ResetGamepadBindsToDefault() end
 --- @param tertiaryScriptId integer
 --- @return integer
 function GetCostToScribeScripts(craftedAbilityId, primaryScriptId, secondaryScriptId, tertiaryScriptId) end
+
+--- @param activeSpectacleEventId integer
+--- @return textureName
+function GetActiveSpectacleEventActivityFinderBackgroundKeyboard(activeSpectacleEventId) end
 
 --- @param itemLink string
 --- @param equipped bool
@@ -5648,9 +5879,8 @@ function ResetChatter() end
 
 --- @param endlessDungeonGroupType EndlessDungeonGroupType
 --- @param endlessDungeonId integer
---- @param classId integer
 --- @return LeaderboardDataReadyState
-function QueryEndlessDungeonLeaderboardData(endlessDungeonGroupType, endlessDungeonId, classId) end
+function QueryEndlessDungeonLeaderboardData(endlessDungeonGroupType, endlessDungeonId) end
 
 --- @param itemLink string
 --- @return bool
@@ -5683,6 +5913,9 @@ function GetMaxCurrencyTransfer(currencyType, fromLocation, toLocation) end
 --- @return bool
 function ShouldShowFSRSetting() end
 
+--- @return void
+function ResetConsolePublicUserSettingsToDefault() end
+
 --- @return integer
 function GetMaxBags() end
 
@@ -5699,6 +5932,10 @@ function ShowPlatformESOChapterUpgradeUI(chapterId, isCollectorsEdition, source)
 
 --- @return integer
 function GetNumChampionNodesToPreallocate() end
+
+--- @param activeSpectacleEventId integer
+--- @return textureName
+function GetActiveSpectacleEventActivityFinderBackgroundGamepad(activeSpectacleEventId) end
 
 --- @param SCTCloudId integer
 --- @return void
@@ -5758,6 +5995,10 @@ function CanSiegeWeaponAim() end
 --- @param linkStyle LinkStyle
 --- @return string
 function GetSmithingPatternResultLink(patternIndex, materialIndex, materialQuantity, itemStyleId, traitIndex, linkStyle) end
+
+--- @param skillLineIdsToDeactivate integer
+--- @return void
+function ActivateSkillLinesInAllocationRequest(skillLineIdsToDeactivate) end
 
 --- @return bool
 function IsStoreEmpty() end
@@ -6128,6 +6369,9 @@ function IsInHousingEditorPlacementMode() end
 --- @return void
 function TurnRightStart() end
 
+--- @return integer
+function GetNumReturningPlayerPrimaryRewards() end
+
 --- @return integer, integer
 function GetRaidOfTheWeekTimes() end
 
@@ -6163,6 +6407,10 @@ function ToggleFullScreen() end
 
 --- @return bool
 function DidLocalPlayerJoinBattlegroundInProgress() end
+
+--- @param skillLineIdsToTrain integer
+--- @return void
+function AddTrainingToAllocationRequest(skillLineIdsToTrain) end
 
 --- @param collectibleId integer
 --- @return bool
@@ -6205,6 +6453,11 @@ function IsAwaitingCraftingProcessResponse() end
 --- @return void
 function ResetGroupFinderFilterAndDraftDifficultyToDefault() end
 
+--- @param bagId Bag
+--- @param slotIndex integer
+--- @return bool
+function IsItemLockedSetPiece(bagId, slotIndex) end
+
 --- @param language OfficialLanguage
 --- @return string
 function BCP47StringForZoOfficialLanguage(language) end
@@ -6237,6 +6490,10 @@ function GetMapTileTexture(tileIndex) end
 --- @param slotIndex integer
 --- @return ItemQuality
 function GetItemFunctionalQuality(bagId, slotIndex) end
+
+--- @param abilityId integer
+--- @return bool
+function IsCharmAbility(abilityId) end
 
 --- @param reagentBagId Bag
 --- @param reagentSlotIndex integer
@@ -6456,6 +6713,10 @@ function PreviewRewardCollectibleAction(rewardId, action) end
 --- @return HousingFurnishingLimitType
 function GetCollectibleFurnishingLimitType(collectibleId) end
 
+--- @param activeSpectacleEventId integer
+--- @return string
+function GetActiveSpectacleEventPhaseCompleteNotificationMessage(activeSpectacleEventId) end
+
 --- @return integer
 function GetAntiquityScryingToolCollectibleId() end
 
@@ -6469,6 +6730,11 @@ function GetUnitZone(unitTag) end
 --- @param guildId integer
 --- @return string
 function GetGuildName(guildId) end
+
+--- @param roleIndex luaindex
+--- @param statIndex luaindex
+--- @return DerivedStats, integer, integer, DerivedStatDisplayType
+function GetImportantDerivedStatDisplayInfoForRoleAtIndex(roleIndex, statIndex) end
 
 --- @return string
 function GetGamepadLeftStickSlideAndScrollIcon() end
@@ -6554,6 +6820,12 @@ function FinalizePartialPendingNarrationText(pauseBetweenTextMs) end
 --- @return EndlessDungeonGroupType
 function GetEndlessDungeonGroupType() end
 
+--- @param abilityId integer
+--- @param buildIndex luaindex
+--- @param hotbarCategory HotBarCategory
+--- @return integer
+function GetEffectiveAbilityIdForAbilityOnHotbarForArmoryBuild(abilityId, buildIndex, hotbarCategory) end
+
 --- @return integer|nil
 function GetCurrentRaidStartingReviveCounters() end
 
@@ -6571,6 +6843,10 @@ function SelectSlotAbility(abilityIndex, actionSlotIndex, hotbarCategory) end
 --- @param furnitureId id64
 --- @return integer, integer, integer, integer, integer, integer
 function HousingEditorGetFurnitureWorldBounds(furnitureId) end
+
+--- @param activeSpectacleEventId integer
+--- @return bool
+function IsActiveSpectacleEventPhaseTransitionEnabled(activeSpectacleEventId) end
 
 --- @param unitTag string
 --- @return string
@@ -6642,6 +6918,10 @@ function GetCurrentBattlegroundRoundMaxActiveSequencedObjectives(roundIndex) end
 --- @param itemLink string
 --- @return bool
 function DoesItemLinkFinishQuest(itemLink) end
+
+--- @param collectibleId integer
+--- @return Bag
+function GetBagForCollectible(collectibleId) end
 
 --- @param abilityId integer
 --- @param hotbarCategory HotBarCategory
@@ -6735,6 +7015,11 @@ function GetCrownCrateRewardStackCount(rewardIndex) end
 --- @param index luaindex
 --- @return string
 function GetTimedActivityName(index) end
+
+
+--- @private
+--- @return void
+function RerollEndlessDungeonBuffSelection() end
 
 --- @return TributeClubRank
 function GetTributePlayerClubRank() end
@@ -6979,6 +7264,10 @@ function GetGroupFinderUserTypeGroupListingPlaystyle(userType) end
 --- @return void
 function TradeRemoveItem(tradeIndex) end
 
+--- @param index luaindex
+--- @return integer
+function GetClassIdByIndex(index) end
+
 --- @param guildId integer
 --- @param eventId integer53
 --- @return GuildHistoryEventCategory, luaindex|nil
@@ -7004,6 +7293,12 @@ function IsTraitKnownForItem(itemId, traitType) end
 
 --- @return integer
 function GetSecondsUntilArrestTimeout() end
+
+--- @return void
+function FlagReturningPlayerAnnouncementSeen() end
+
+--- @return luaindex
+function GetActiveLoadoutRoleIndex() end
 
 --- @param questIndex luaindex
 --- @return bool
@@ -7056,6 +7351,10 @@ function HasUpcomingLevelUpReward() end
 
 --- @return integer
 function GetMaxBankUpgrade() end
+
+--- @param synergyIndex luaindex
+--- @return string, textureName, string, integer, integer, bool
+function GetSynergyInfoAtIndex(synergyIndex) end
 
 --- @param actionName string
 --- @return luaindex|nil, luaindex|nil, luaindex|nil
@@ -7177,10 +7476,9 @@ function GetDigSpotDurability() end
 function DoesCurrencyAmountMeetConfirmationThreshold(currencyType, currencyQuantity) end
 
 --- @param raidId integer
---- @param classId integer
 --- @param entryIndex luaindex
 --- @return integer, string, integer, integer, integer, string
-function GetChallengeLeaderboardEntryInfo(raidId, classId, entryIndex) end
+function GetChallengeLeaderboardEntryInfo(raidId, entryIndex) end
 
 --- @param bagId Bag
 --- @param slotIndex integer
@@ -7361,6 +7659,10 @@ function GetSharedPersonalityEmoteIconForCategory(category) end
 --- @return bool
 function HousingEditorGetSelectedFurniturePathConformToGround() end
 
+--- @param activeSpectacleEventId integer
+--- @return void
+function RequestBestowActiveSpectacleEventQuest(activeSpectacleEventId) end
+
 --- @param itemLink string
 --- @return integer
 function GetItemLinkRequiredChampionPoints(itemLink) end
@@ -7470,6 +7772,9 @@ function GetGuildSpecificItemInfo(index) end
 --- @param giftId id64
 --- @return void
 function RequestResendGift(giftId) end
+
+--- @return integer
+function GetNumReturningPlayerDailyLoginRewards() end
 
 --- @param keepId integer
 --- @param battlegroundContext BattlegroundQueryContextType
@@ -7615,6 +7920,10 @@ function StartAntiquitySearch(searchString) end
 
 --- @return bool
 function IsPlayerInReviveCounterRaid() end
+
+--- @param uiSystem UISystem
+--- @return void
+function HandleReturningPlayerUISystemShown(uiSystem) end
 
 --- @param marketProductId integer
 --- @private
@@ -8009,6 +8318,11 @@ function CanItemBeSmithingTraitResearched(bagId, slotIndex, craftingSkillType, r
 --- @return bool
 function CanUnitTrade(unitTag) end
 
+--- @param activeSpectacleEventId integer
+--- @param activeSpectacleEventPhaseId integer
+--- @return string, string
+function GetSpectacleEventPhaseCompleteAnnouncementInfo(activeSpectacleEventId, activeSpectacleEventPhaseId) end
+
 --- @param progressionId integer
 --- @return MorphSlot
 function GetProgressionSkillCurrentMorphSlot(progressionId) end
@@ -8082,6 +8396,9 @@ function SetGroupFinderFilterGroupSizeFlags(groupSizes) end
 --- @return integer, string, bool
 function GetItemSetBonusInfo(itemSetId, index) end
 
+--- @return void
+function StowAllFurnitureItems() end
+
 --- @param actorCategory GameplayActorCategory
 --- @param outfitIndex luaindex
 --- @param outfitSlot OutfitSlot
@@ -8117,6 +8434,10 @@ function IsInAvAZone() end
 --- @return string|nil
 function GetCompanionUnitTagByGroupUnitTag(groupUnitTag) end
 
+--- @param campaignId integer
+--- @return integer
+function GetPromotionalEventCampaignUIPriority(campaignId) end
+
 --- @return OverrideMusicMode
 function GetOverrideMusicMode() end
 
@@ -8147,6 +8468,12 @@ function GetUpdatedRecipeIndices(index) end
 --- @return luaindex|nil
 function GetGuildRankIndex(guildId, rankId) end
 
+--- @param globalPerkIndex luaindex
+--- @param slotFlagIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return VengeancePerkSlotFlags
+function GetSlotFlagForSlotAtIndex(globalPerkIndex, slotFlagIndex, roleIndex) end
+
 --- @return void
 function HousingEditorToggleSurfaceDragMode() end
 
@@ -8170,6 +8497,9 @@ function GetTributePatronNumStarterCards(patronId) end
 --- @param guildId integer
 --- @return string
 function GetGuildRecruitmentMessageAttribute(guildId) end
+
+--- @return integer
+function GetRemainingCooldownForRoleSwapMs() end
 
 --- @param guildId integer
 --- @param eventIndex luaindex
@@ -8331,6 +8661,9 @@ function GetMedalName(medalId) end
 --- @return string
 function GetLootItemLink(lootId, linkStyle) end
 
+--- @return ItemBonusSuppressionType, integer
+function GetItemEnchantSuppressionInfo() end
+
 --- @param unitTag string
 --- @return integer
 function GetUnitDisguiseState(unitTag) end
@@ -8406,10 +8739,6 @@ function IsMacUI() end
 
 --- @return string
 function GetESOVersionString() end
-
---- @param houseBankBagId Bag
---- @return integer
-function GetCollectibleForHouseBankBag(houseBankBagId) end
 
 --- @return integer
 function GetNumCharacterSlotsPerUpgrade() end
@@ -8563,6 +8892,11 @@ function GetSCTSlotAnimationMinimumSpacing(slotIndex) end
 --- @return integer, integer, integer, integer
 function GetUnitRawWorldPosition(unitTag) end
 
+--- @param slotFlag VengeancePerkSlotFlags
+--- @param roleIndex luaindex|nil
+--- @return luaindex
+function GetIndexOfPerkInSlotForRole(slotFlag, roleIndex) end
+
 --- @param activity LFGActivity
 --- @param index luaindex
 --- @return integer
@@ -8640,6 +8974,10 @@ function GetCurrentBattlegroundMMRReductionBonusTypes() end
 --- @return void
 function RemoveLeaderboardScoreNotification(notificationId) end
 
+--- @param questId integer
+--- @return QuestRepeatableType
+function GetQuestRepeatableType(questId) end
+
 --- @param categoryIndex luaindex
 --- @return integer
 function GetNumHeraldryBackgroundStyles(categoryIndex) end
@@ -8648,10 +8986,16 @@ function GetNumHeraldryBackgroundStyles(categoryIndex) end
 --- @return SetMapResultCode
 function SetMapFloor(desiredFloorIndex) end
 
+--- @return bool
+function IsCurrentCampaignVengeanceRuleset() end
+
 --- @param marketProductId integer
 --- @private
 --- @return integer
 function GetMarketProductNumBundledProducts(marketProductId) end
+
+--- @return integer
+function GetSubclassingAchievementId() end
 
 --- @return integer
 function GetSkillBuildTutorialLevel() end
@@ -8742,10 +9086,6 @@ function GetItemLinkFurnitureDataId(itemLink) end
 --- @return integer
 function GetRecallCost(nodeIndex) end
 
---- @param campaignKey id64
---- @return string
-function GetPromotionalEventCampaignAnnouncementBannerText(campaignKey) end
-
 --- @param entryIndex luaindex
 --- @return ItemFilterType
 function GetStoreEntryTypeInfo(entryIndex) end
@@ -8833,6 +9173,10 @@ function GetTelvarStonePercentLossOnNonPvpDeath() end
 --- @return integer
 function GetNumMarketProductCategories(displayGroup) end
 
+--- @param index luaindex
+--- @return integer
+function GetNumberOfImportantMiscStatDisplaysForRoleAtIndex(index) end
+
 --- @return QueueForCampaignResponseType
 function GetExpectedGroupQueueResult() end
 
@@ -8903,6 +9247,10 @@ function GetItemSetCollectionCategoryId(itemSetId) end
 --- @return bool
 function IsPlayerEmoteOverridden(emoteId) end
 
+--- @param activeSpectacleEventId integer
+--- @return textureName
+function GetActiveSpectacleEventLootIconKeyboard(activeSpectacleEventId) end
+
 --- @param displayName string
 --- @return string
 function DecoratePlatformDisplayName(displayName) end
@@ -8925,9 +9273,16 @@ function GetTimedActivityMaxProgress(index) end
 --- @return integer, number
 function GetChamberState(chamberIndex) end
 
+--- @return number
+function GetTotalUserAddOnCPUTimeUsedLastFrameMS() end
+
 --- @param link string
 --- @return string
 function GetLoreBookTitleFromLink(link) end
+
+--- @param skillLineId integer
+--- @return integer
+function GetSkillLineMasteryCollectibleId(skillLineId) end
 
 --- @param itemLink string
 --- @param considerCondition bool
@@ -9186,6 +9541,9 @@ function GetAddCurrencyRewardInfo(rewardId) end
 --- @return string
 function GetServiceTokenDescription(tokenType) end
 
+--- @return void
+function ReplayLastInteractVO() end
+
 --- @param currencyType CurrencyType
 --- @param currencyLocation CurrencyLocation
 --- @return bool
@@ -9206,6 +9564,13 @@ function IsValidCraftedAbilityForSlot(craftedAbilityId, actionSlotIndex) end
 --- @param activityId integer
 --- @return textureName, textureName
 function GetActivityKeyboardDescriptionTextures(activityId) end
+
+--- @param redPerkIndex luaindex
+--- @param yellowPerkIndex luaindex
+--- @param bluePerkIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return VengeanceActionResult
+function RequestSetPerkSelectionForRoleByIndex(redPerkIndex, yellowPerkIndex, bluePerkIndex, roleIndex) end
 
 --- @return GamepadTemplate
 function GetGamepadTemplate() end
@@ -9277,6 +9642,9 @@ function GetBattlegroundRoundNearingVictoryPercent(battlegroundId, roundIndex) e
 --- @return integer
 function GetTributePlayerCampaignTotalExperience(campaignKey) end
 
+--- @return integer
+function GetNumClaimableReturningPlayerRewards() end
+
 --- @param index luaindex
 --- @return string
 function GetGroupFinderSearchListingDescriptionByIndex(index) end
@@ -9308,6 +9676,10 @@ function GetTargetMountedStateInfo(characterOrDisplayName) end
 --- @param actorCategory GameplayActorCategory
 --- @return void
 function SetPreviewingUnequippedOutfitInPreviewCollection(actorCategory) end
+
+--- @param activeSpectacleEventId integer
+--- @return string
+function GetActiveSpectacleEventPhaseStartedNotificationMessage(activeSpectacleEventId) end
 
 --- @param slotIndex luaindex
 --- @param sourceType SCTUnitType
@@ -9583,6 +9955,11 @@ function GetAntiquityIcon(antiquityId) end
 --- @return SkillType, luaindex
 function GetSkillLineIndicesFromSkillId(skillId) end
 
+--- @param globalPerkIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return integer
+function GetNumberOfSlotFlagsForPerkAtIndex(globalPerkIndex, roleIndex) end
+
 
 --- @private
 --- @return void
@@ -9720,6 +10097,11 @@ function GetTrackedPromotionalEventActivityInfo() end
 --- @return textureName
 function GetInstantUnlockRewardIcon(instantUnlockId) end
 
+--- @param bagId Bag
+--- @param slotIndex integer
+--- @return bool
+function CanItemBeUsedToLearn(bagId, slotIndex) end
+
 --- @param aMovementCentimeters integer
 --- @return void
 function HousingEditorSetPrecisionMoveUnits(aMovementCentimeters) end
@@ -9727,6 +10109,9 @@ function HousingEditorSetPrecisionMoveUnits(aMovementCentimeters) end
 --- @param instantUnlockId integer
 --- @return InstantUnlockRewardCategory
 function GetInstantUnlockRewardCategory(instantUnlockId) end
+
+--- @return bool
+function DoesPlatformSupportSpatialSound() end
 
 
 --- @private
@@ -9845,6 +10230,13 @@ function ClearSCTSlotExcludedTargetTypes(slotIndex) end
 --- @return integer
 function GetNumJournalQuests() end
 
+--- @param mapId integer
+--- @return luaindex|nil
+function GetZoneIndexByMapId(mapId) end
+
+--- @return void
+function ClearWarnConsoleAddOnSavedVariableLimit() end
+
 --- @return HousingEditorMode
 function GetHousingEditorMode() end
 
@@ -9952,6 +10344,9 @@ function GetNumProvisionerItemAsFurniturePreviewVariations(recipeListIndex, reci
 --- @return void
 function SetGroupFinderUserTypeGroupListingChampionPoints(userType, championPoints) end
 
+--- @return void
+function BestowSubclassingQuest() end
+
 --- @param collectibleId integer
 --- @return string
 function GetCollectiblePersonalityOverridenEmoteSlashCommandNames(collectibleId) end
@@ -10033,8 +10428,13 @@ function GetMapName() end
 function HousingEditorGetScreenPointWorldPlaneIntersection(aScreenX, aScreenY, aWorldX1, aWorldY1, aWorldZ1, aWorldX2, aWorldY2, aWorldZ2, aWorldX3, aWorldY3, aWorldZ3) end
 
 --- @param campaignKey id64
+--- @param choiceId integer|nil
 --- @return void
-function TryClaimPromotionalEventCapstoneReward(campaignKey) end
+function TryClaimPromotionalEventCapstoneReward(campaignKey, choiceId) end
+
+--- @param activeSpectacleEventId integer
+--- @return luaindex|nil
+function GetActiveSpectacleEventQuestIndex(activeSpectacleEventId) end
 
 --- @return integer
 function GetSecondsPlayed() end
@@ -10078,9 +10478,15 @@ function GetLastCraftingResultTotalInspiration() end
 --- @return void
 function AgreeToEULA(eulaType) end
 
+--- @return number
+function GetTotalUserAddOnCPUTimeAvailableEachFrameMS() end
+
 --- @param itemLink string
 --- @return integer
 function GetItemLinkAppliedEnchantId(itemLink) end
+
+--- @return luaindex|nil, VengeancePerkSlotFlags
+function GetCursorVengeancePerkData() end
 
 --- @param guildId integer
 --- @param linkStyle LinkStyle
@@ -10098,6 +10504,10 @@ function WasGamepadLeftStickConsumedByOverlay() end
 --- @param lastKey type
 --- @return type, type
 function InsecureNext(table, lastKey) end
+
+--- @param campaignKey id64
+--- @return bool
+function IsReturningPlayerPromotionalEventsCampaign(campaignKey) end
 
 --- @param locationIndex luaindex
 --- @return bool
@@ -10384,6 +10794,10 @@ function GetMarketProductPreviewVariationDisplayName(marketProductId, variation)
 --- @return string, InterfaceColorType, integer
 function GenerateMapPingTooltipLine(mapPingType, unitTag) end
 
+--- @param rewardId integer
+--- @return string, string, string
+function GetMailItemRewardMailInfo(rewardId) end
+
 --- @return GroupFinderActionResult
 function GetGroupFinderStatusReason() end
 
@@ -10444,6 +10858,10 @@ function IsMailReturnable(mailId) end
 --- @return bool, string, number, number, textureName, textureName|nil, PointOfInterestType, bool, bool
 function GetFastTravelNodeInfo(nodeIndex) end
 
+--- @param index luaindex
+--- @return bool
+function IsLoadoutRoleEquippedAtIndex(index) end
+
 --- @param lastWorldEventInstanceId integer|nil
 --- @return integer|nil
 function GetNextWorldEventInstanceId(lastWorldEventInstanceId) end
@@ -10492,10 +10910,9 @@ function GetGuildReleaseInteractionKeepId() end
 --- @return integer
 function GetMarketProductEligibilityErrorStringIds(marketProductId) end
 
---- @param classId integer
 --- @param entryIndex luaindex
 --- @return integer, string, integer, integer, integer, string
-function GetChallengeOfTheWeekLeaderboardEntryInfo(classId, entryIndex) end
+function GetChallengeOfTheWeekLeaderboardEntryInfo(entryIndex) end
 
 --- @param guildId integer
 --- @param permission GuildPermission
@@ -10665,6 +11082,9 @@ function GetGroupSize() end
 function HousingEditorGetFurniturePathState(furnitureId) end
 
 --- @return bool
+function IsReturningPlayer() end
+
+--- @return bool
 function IsBankOpen() end
 
 --- @return bool
@@ -10682,6 +11102,10 @@ function AddBackgroundListFilterEntry64(taskId, value) end
 
 --- @return string
 function GetGamepadBothDpadDownAndRightStickScrollIcon() end
+
+--- @param zoneIndex luaindex
+--- @return integer
+function GetActiveSpectacleEventIdsForZoneIndex(zoneIndex) end
 
 --- @param ignoreIndex luaindex
 --- @param note string
@@ -10728,6 +11152,9 @@ function GetUIPlatform() end
 
 --- @return integer, integer
 function GetDigSpotNumRadars() end
+
+--- @return bool
+function DoesPlatformSupportModBrowser() end
 
 --- @param recipeListIndex luaindex
 --- @param recipeIndex luaindex
@@ -10840,6 +11267,9 @@ function GetLootTargetInfo() end
 --- @return void
 function PerformInterrupt() end
 
+--- @return bool
+function HasActiveEditControl() end
+
 --- @param achievementId integer
 --- @param linkStyle LinkStyle
 --- @return string
@@ -10951,6 +11381,11 @@ function GetGuildAlliance(guildId) end
 --- @return integer
 function GetChampionSkillJumpPoints(championSkillId) end
 
+--- @param globalPerkIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return bool
+function IsVengeancePerkAtIndexDisabled(globalPerkIndex, roleIndex) end
+
 --- @param currentRankPoints integer
 --- @return integer, integer, integer, integer
 function GetAvARankProgress(currentRankPoints) end
@@ -11011,6 +11446,12 @@ function GetEquippedItemInfo(equipSlot) end
 --- @return integer
 function GetDefaultSkillBuildId() end
 
+--- @param roleIndex luaindex
+--- @param hotbar HotBarCategory
+--- @param slot luaindex
+--- @return integer
+function GetAbilityIdForHotbarSlotAtIndex(roleIndex, hotbar, slot) end
+
 --- @param chapterUpgradeId integer
 --- @return string
 function GetChapterOverrideDisplayName(chapterUpgradeId) end
@@ -11024,6 +11465,9 @@ function SetGroupFinderUserTypeGroupListingRequiresChampion(userType, requiresCh
 --- @return void
 function CancelFriendRequest(index) end
 
+--- @return Bag
+function HousingEditorGetRetrieveToBag() end
+
 --- @param campaignId integer
 --- @param queueAsGroup bool
 --- @return CampaignQueueRequestStateType
@@ -11036,6 +11480,9 @@ function GroupKickByName(characterOrDisplayName) end
 --- @param marketProductId integer
 --- @return string
 function GetMarketProductDisplayName(marketProductId) end
+
+--- @return bool
+function HasAccessToSubclassing() end
 
 --- @param battlegroundContext BattlegroundQueryContextType
 --- @param index luaindex
@@ -11061,6 +11508,9 @@ function GetPlayerActiveSubzoneName() end
 --- @param campaignKey id64|nil
 --- @return bool
 function IsPlacedInCampaign(campaignKey) end
+
+--- @return integer
+function GetEndlessDungeonBuffSelectorRerollCost() end
 
 --- @param slot integer
 --- @protected
@@ -11094,9 +11544,8 @@ function GetArtifactReturnObjectiveOwner(keepId, objectiveId, battlegroundContex
 
 --- @param raidCategory RaidCategory
 --- @param raidId integer
---- @param classId integer
 --- @return LeaderboardDataReadyState
-function QueryRaidLeaderboardData(raidCategory, raidId, classId) end
+function QueryRaidLeaderboardData(raidCategory, raidId) end
 
 --- @return number
 function GetTelvarStonePercentLossOnPvpDeath() end
@@ -11124,6 +11573,9 @@ function GetStoreUsedCurrencyTypes() end
 --- @param zoneCompletionType ZoneCompletionType
 --- @return integer
 function GetNumCompletedZoneActivitiesForZoneCompletionType(zoneId, zoneCompletionType) end
+
+--- @return integer
+function GetNumActiveSpectacleEvents() end
 
 --- @param abilityId integer
 --- @param mechanicFlag CombatMechanicFlags
@@ -11159,10 +11611,9 @@ function GetGuildRecruitmentInfo(guildId) end
 --- @return integer
 function GetGiftingGracePeriodTime() end
 
---- @param classId integer
 --- @param entryIndex luaindex
 --- @return integer, string, integer, integer, string, integer, integer, integer
-function GetEndlessDungeonOfTheWeekSoloLeaderboardEntryInfo(classId, entryIndex) end
+function GetEndlessDungeonOfTheWeekSoloLeaderboardEntryInfo(entryIndex) end
 
 --- @param restyleMode RestyleMode
 --- @param collectibleId integer
@@ -11194,6 +11645,10 @@ function GetSharedQuickChatIcon() end
 --- @param resultIndex luaindex
 --- @return string, integer
 function GetMatchTradingHouseItemNamesResult(taskId, resultIndex) end
+
+--- @param rewardIndex luaindex
+--- @return integer, integer
+function GetReturningPlayerDailyLoginRewardInfo(rewardIndex) end
 
 --- @param index luaindex
 --- @return string
@@ -11309,6 +11764,10 @@ function GetItemLinkTraitOnUseAbilityInfo(itemLink, index) end
 --- @param outfitSlot OutfitSlot
 --- @return integer
 function GetOutfitSlotDataCollectibleCategoryId(outfitSlot) end
+
+--- @param activeSpectacleEventId integer
+--- @return number
+function GetSecondsRemainingUntilNextActiveSpectacleEventPhase(activeSpectacleEventId) end
 
 --- @return bool
 function IsCurrentHouseFavorite() end
@@ -11434,6 +11893,10 @@ function GetCollectibleLink(collectibleId, linkStyle) end
 --- @return KeyCode
 function ConvertMouseButtonToKeyCode(mouseButton) end
 
+--- @param marketProductId integer
+--- @return luaindex|nil, luaindex|nil
+function GetMarketProductUnlockedHelpIndices(marketProductId) end
+
 --- @return bool
 function DoesCurrentZoneAllowBattleLevelScaling() end
 
@@ -11458,6 +11921,11 @@ function IsUnitJusticeGuard(unitTag) end
 --- @param instantUnlockId integer
 --- @return string
 function GetInstantUnlockRewardDescription(instantUnlockId) end
+
+--- @param classId integer
+--- @param classSkillLineIndex luaindex
+--- @return integer
+function GetSkillLineIdForClass(classId, classSkillLineIndex) end
 
 --- @param show bool
 --- @return void
@@ -11513,6 +11981,10 @@ function CraftEnchantingItem(potencyRuneBagId, potencyRuneSlotIndex, essenceRune
 function GetActivityInfo(activityId) end
 
 --- @param bagId Bag
+--- @return void
+function HousingEditorSetRetrieveToBag(bagId) end
+
+--- @param bagId Bag
 --- @return bool
 function HasPoisonInBag(bagId) end
 
@@ -11526,6 +11998,10 @@ function GetGamepadRightStickDeltaY(includeDeadzone) end
 
 --- @return bool
 function IsGameCameraSiegeControlled() end
+
+--- @param bagId Bag
+--- @return integer
+function GetCollectibleForBag(bagId) end
 
 --- @param trackType TrackedDataType
 --- @param param1 integer
@@ -11805,6 +12281,11 @@ function DoesGuildHistoryEventCategoryHaveUpToDateEvents(guildId, category) end
 --- @return bool
 function IsHouseToursSearchOnCooldown() end
 
+--- @param activeSpectacleEventId integer
+--- @param achievementIndex luaindex
+--- @return integer
+function GetActiveSpectacleEventFeaturedAchievementsId(activeSpectacleEventId, achievementIndex) end
+
 --- @param itemLink string
 --- @return bool
 function IsItemLinkOnlyUsableFromQuickslot(itemLink) end
@@ -12030,6 +12511,10 @@ function ChromaApplyCustomEffectCellColor(deviceType, rowIndex, columnIndex, red
 --- @return id64
 function GetBackgroundListFilterResult64(taskId, resultIndex) end
 
+--- @param roleIndex luaindex|nil
+--- @return integer
+function GetNumberOfPerksAvailableToLoadoutRoleDef(roleIndex) end
+
 --- @param zoneId integer
 --- @return textureName
 function GetZoneStoryKeyboardBackground(zoneId) end
@@ -12042,6 +12527,10 @@ function GetItemLinkInfo(itemLink) end
 --- @param currencyLocation CurrencyLocation
 --- @return bool
 function IsCurrencyCapped(currencyType, currencyLocation) end
+
+--- @param roleIndex luaindex|nil
+--- @return textureName
+function GetVengeanceRoleIconAtIndex(roleIndex) end
 
 --- @param bagId Bag
 --- @param slotIndex integer
@@ -12131,6 +12620,12 @@ function GetAdditionalLevelUpUnlockDisplayName(level, unlockIndex) end
 --- @param cardDefId integer
 --- @return TributeCardType
 function GetTributeCardType(cardDefId) end
+
+--- @param vengeancePerkIndex luaindex
+--- @param vengeancePerkSlotFlag VengeancePerkSlotFlags
+--- @protected
+--- @return void
+function PickupVengeancePerk(vengeancePerkIndex, vengeancePerkSlotFlag) end
 
 --- @param level integer
 --- @return bool
@@ -12284,6 +12779,10 @@ function GetOfferedQuestShareInfo(questId) end
 --- @return bool
 function IsDeferredSettingLoaded(system, settingId) end
 
+--- @param rewardType RewardType
+--- @return CurrencyType
+function GetCurrencyTypeFromRewardType(rewardType) end
+
 --- @return luaindex|nil
 function GetCurrentTitleIndex() end
 
@@ -12313,6 +12812,12 @@ function SetHousingEditorTrackedPathNode(placedFurnitureId, pathIndex) end
 --- @param language OfficialLanguage
 --- @return bool
 function ZoIsOfficialLanguageSupported(language) end
+
+--- @param skillType SkillType
+--- @param skillLineIndex luaindex
+--- @param skillIndex luaindex
+--- @return integer
+function GetSkillAbilityCharacterLevelNeededToUnlock(skillType, skillLineIndex, skillIndex) end
 
 --- @param lastCollectibleId integer|nil
 --- @return integer|nil
@@ -12469,7 +12974,7 @@ function GetMundusStoneHelpIndices() end
 
 --- @param skillType SkillType
 --- @param skillLineIndex luaindex
---- @return luaindex, bool, bool, bool
+--- @return luaindex, bool, bool, bool, bool, bool
 function GetSkillLineDynamicInfo(skillType, skillLineIndex) end
 
 --- @param bagId Bag
@@ -12691,9 +13196,10 @@ function IsActionSlotLocked(actionSlotIndex, hotbarCategory) end
 --- @return integer
 function GetChampionPointsPlayerProgressionCap() end
 
---- @param collectibleId integer
---- @return Bag
-function GetCollectibleBankAccessBag(collectibleId) end
+--- @param id id64
+--- @param number integer53
+--- @return bool
+function IsId64EqualToNumber(id, number) end
 
 --- @param rewardIndex luaindex
 --- @param linkStyle LinkStyle
@@ -12704,6 +13210,11 @@ function GetCrownCrateRewardItemLink(rewardIndex, linkStyle) end
 --- @private
 --- @return void
 function SendPlayerStuck() end
+
+--- @param perkIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return string
+function GetVengeancePerkNameAtIndex(perkIndex, roleIndex) end
 
 --- @return bool
 function IsGamepadUISupported() end
@@ -12755,6 +13266,9 @@ function TakeMailAttachedMoney(mailId) end
 --- @param jumpOutside bool
 --- @return void
 function RequestJumpToHouse(houseId, jumpOutside) end
+
+--- @return id64|nil, PromotionalEventCampaignComponentType, luaindex|nil
+function GetReturningPlayerIntroGameplayData() end
 
 --- @param combinationId integer
 --- @return integer
@@ -12889,14 +13403,16 @@ function GetHousingEditorHistoryCommandInfo(index) end
 function IsAltKeyDown() end
 
 --- @param raidId integer
---- @param classId integer
 --- @return integer
-function GetNumChallengeLeaderboardEntries(raidId, classId) end
+function GetNumChallengeLeaderboardEntries(raidId) end
 
 --- @param abilityId integer
 --- @param casterUnitTag string
 --- @return bool|nil
 function IsAbilityDurationToggled(abilityId, casterUnitTag) end
+
+--- @return integer
+function GetSubclassingQuestId() end
 
 --- @param actionSlotIndex luaindex
 --- @param hotbarCategory HotBarCategory
@@ -13308,6 +13824,10 @@ function IsPreviewingMarketProduct(marketProductId) end
 --- @return void
 function HousingEditorRotateSelectedObject(aAxis, aRotationForce) end
 
+--- @param classId integer
+--- @return integer
+function GetClassAccessCollectibleId(classId) end
+
 --- @param giftId id64
 --- @return integer
 function GetGiftClaimableQuantity(giftId) end
@@ -13333,6 +13853,9 @@ function HasRaidEnded() end
 --- @return id64
 function GetItemLinkItemSetCollectionSlot(itemLink) end
 
+--- @return bool
+function CanReplayLastInteractVO() end
+
 --- @param bagId Bag
 --- @param slotIndex integer
 --- @return integer, integer
@@ -13342,6 +13865,9 @@ function GetNumCrownGemsFromItemManualGemification(bagId, slotIndex) end
 --- @return number
 function GetGamepadOrKeyboardLeftStickY(includeDeadzone) end
 
+--- @return void
+function MarkReturningPlayerLeaveIntroPromptShown() end
+
 --- @return bool
 function IsUserAdjustingClientWindow() end
 
@@ -13349,6 +13875,9 @@ function IsUserAdjustingClientWindow() end
 --- @param skillLineIndex luaindex
 --- @return integer
 function GetNumSkillAbilities(skillType, skillLineIndex) end
+
+--- @return bool
+function DoesPlatformSupportFramerateCapInMenus() end
 
 --- @param rewardIndex luaindex
 --- @return integer, integer, bool
@@ -13385,6 +13914,10 @@ function CanSmithingStyleBeUsedOnPattern(itemStyleId, patternIndex, materialInde
 
 --- @return bool
 function IsActiveWorldStarterWorld() end
+
+--- @param campaignKey id64
+--- @return bool
+function AreAllPromotionalEventCampaignRewardsClaimed(campaignKey) end
 
 --- @return void
 function DeclineResurrect() end
@@ -13539,6 +14072,10 @@ function DoesCurrentBattlegroundImpactMMR() end
 --- @return integer, integer
 function GetRewardInfoForLevel(level, index) end
 
+--- @param activeSpectacleEventId integer
+--- @return textureName
+function GetActiveSpectacleEventLootIconGamepad(activeSpectacleEventId) end
+
 --- @param categoryIndex luaindex
 --- @param subcategoryIndex luaindex|nil
 --- @return void
@@ -13554,6 +14091,11 @@ function IsDeferredSettingLoading(system, settingId) end
 --- @param skillIndex luaindex
 --- @return luaindex|nil
 function GetProgressionSkillProgressionIndex(skillType, skillLineIndex, skillIndex) end
+
+--- @param zoneIndex luaindex
+--- @param poiIndex luaindex
+--- @return MapFilter
+function GetPOIMapFilterOverride(zoneIndex, poiIndex) end
 
 --- @param messageOrigin SceneManagerMessageOrigin
 --- @param requestType RemoteSceneRequestType
@@ -13846,6 +14388,10 @@ function GetChampionDisciplineId(disciplineIndex) end
 --- @return integer
 function GetNumUnlockedConsolidatedSmithingSets() end
 
+--- @param marketProductId integer
+--- @return integer
+function GetMarketProductUnlockedByAchievementId(marketProductId) end
+
 --- @param characterOrDisplayName string
 --- @return void
 function GroupInviteByName(characterOrDisplayName) end
@@ -14075,7 +14621,7 @@ function LootMoney() end
 function DoesZoneCompletionTypeInZoneHaveBranchesWithDifferentLengths(zoneId, zoneCompletionType) end
 
 --- @param lootIndex luaindex
---- @return integer, string, textureName, integer, integer, integer, bool, bool, LootItemType
+--- @return integer, string, textureName, integer, integer, integer, bool, bool, LootItemType, bool, bool
 function GetLootItemInfo(lootIndex) end
 
 --- @param disciplineId integer
@@ -14140,6 +14686,10 @@ function GetInstanceKickReason() end
 --- @param restyleSlotType integer
 --- @return bool
 function IsRestyleSlotTypeDyeable(restyleMode, restyleSlotType) end
+
+--- @param activeSpectacleEventId integer
+--- @return integer
+function GetActiveSpectacleEventNumFeaturedAchievements(activeSpectacleEventId) end
 
 --- @param itemId integer
 --- @param actionSlotIndex luaindex
@@ -14207,6 +14757,10 @@ function GetSkillBuildEntryInfo(skillBuildId, skillBuildAbilityIndex) end
 --- @return ItemTraitInformation
 function GetItemTraitInformationFromItemLink(itemLink) end
 
+--- @param currencyType CurrencyType
+--- @return string
+function GetCurrencyAcquiredUISound(currencyType) end
+
 --- @param abilityId integer
 --- @param overrideRank integer|nil
 --- @param casterUnitTag string
@@ -14215,6 +14769,10 @@ function GetAbilityRadius(abilityId, overrideRank, casterUnitTag) end
 
 --- @return bool
 function DoesGroupFinderFilterRequireChampion() end
+
+--- @param index luaindex
+--- @return VengeanceActionResult
+function RequestSetLoadoutRoleByIndex(index) end
 
 --- @param slotIndex luaindex
 --- @param eventType SCTEventType
@@ -14250,6 +14808,11 @@ function HasPendingCompanion() end
 --- @return luaindex|nil, luaindex|nil
 function GetLoreBookCollectionIndicesFromCollectionId(collectionId) end
 
+--- @param perkIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return string
+function GetVengeancePerkTooltipTextAtIndex(perkIndex, roleIndex) end
+
 --- @param bagId Bag
 --- @param slotIndex integer
 --- @return bool
@@ -14261,6 +14824,9 @@ function GetTributeLeaderboardLocalPlayerInfo(tributeLeaderboardType) end
 
 --- @return integer|nil
 function GetCurrentHouseTourListingFurnitureCount() end
+
+--- @return luaindex|nil, luaindex|nil
+function GetSubclassingHelpIndices() end
 
 --- @param playerName string
 --- @return void
@@ -14325,12 +14891,21 @@ function LootAll(ignoreStolenItems) end
 --- @return string, textureName, integer, integer, bool, ItemDisplayQuality
 function GetEnchantingResultingItemInfo(potencyRuneBagId, potencyRuneSlotIndex, essenceRuneBagId, essenceRuneSlotIndex, aspectRuneBagId, aspectRuneSlotIndex) end
 
+--- @param slotFlag VengeancePerkSlotFlags
+--- @param roleIndex luaindex|nil
+--- @return luaindex
+function GetSlotIndexOfPerkInSlotForRole(slotFlag, roleIndex) end
+
 --- @param itemLink string
 --- @return ItemTraitType
 function GetItemLinkTraitType(itemLink) end
 
 --- @return void
 function ClearTrackedZoneStory() end
+
+--- @param index luaindex
+--- @return integer
+function GetNumberOfImportantDerivedStatDisplaysForRoleAtIndex(index) end
 
 --- @param bagId Bag
 --- @param slotIndex integer
@@ -14416,6 +14991,11 @@ function SetGuildFinderChampionPointsFilterValues(minChampionPoints, maxChampion
 --- @return void
 function SetGuildFinderPlayTimeFilters(startTime, endTime) end
 
+--- @param bagId Bag
+--- @param slotIndex integer
+--- @return bool
+function CanStowFurnitureItem(bagId, slotIndex) end
+
 --- @param isAssisted bool
 --- @return void
 function SetTrackedZoneStoryAssisted(isAssisted) end
@@ -14498,9 +15078,8 @@ function EnableShareFeatures() end
 function GetScoreboardEntryBattlegroundTeam(entryIndex, roundIndex) end
 
 --- @param endlessDungeonId integer
---- @param classId integer
 --- @return integer
-function GetNumEndlessDungeonSoloLeaderboardEntries(endlessDungeonId, classId) end
+function GetNumEndlessDungeonSoloLeaderboardEntries(endlessDungeonId) end
 
 --- @return integer
 function GetNumRecipeLists() end
@@ -14530,6 +15109,9 @@ function TrackNextActivityForZoneStory(zoneId, zoneCompletionType, setAutoMapNav
 --- @param isInline bool
 --- @return void
 function SetEncounterLogAbilityInfoInline(isInline) end
+
+--- @return bool
+function IsGameInWindowedMode() end
 
 --- @return integer
 function GetAntiquityScryingSkillLineId() end
@@ -14602,6 +15184,10 @@ function StopWorldParticleEffect(particleEffectId) end
 --- @return void
 function RequestPostItemOnTradingHouse(bag, slot, quantity, postingPrice) end
 
+--- @param itemLink string
+--- @return bool
+function IsItemLinkLockedSetPiece(itemLink) end
+
 --- @param abilityId integer
 --- @param hotbarCategory HotBarCategory
 --- @return integer
@@ -14621,6 +15207,9 @@ function RequestResolveGroupListingApplication(requestType, applicantCharId) end
 --- @param textType SCTEventTextType
 --- @return number, number, number, bool
 function GetSCTEventVisualInfoTextColor(SCTEventVisualInfoId, textType) end
+
+--- @return integer
+function GetTimeUntilNextReturningPlayerDailyLoginRewardClaimS() end
 
 --- @return bool
 function IsReticleHidden() end
@@ -14667,6 +15256,10 @@ function BestowActivityTypeGatingQuest(activity) end
 --- @return bool
 function ActionSlotHasCostFailure(actionSlotIndex, hotbarCategory) end
 
+--- @param index luaindex
+--- @return string
+function GetVengeanceRoleNameAtIndex(index) end
+
 --- @param campaignId integer
 --- @param queueAsGroup bool
 --- @return integer
@@ -14685,6 +15278,11 @@ function GetPromotionalEventCampaignLargeBackgroundFileIndex(campaignId) end
 --- @param tradeIndex luaindex
 --- @return string, textureName, integer, ItemDisplayQuality, string, integer, bool, EquipType, integer
 function GetTradeItemInfo(who, tradeIndex) end
+
+--- @param zoneIndex luaindex
+--- @param poiIndex luaindex
+--- @return integer
+function GetActiveSpectacleEventIdsForWhichPOIIsPrimary(zoneIndex, poiIndex) end
 
 --- @param activityId integer
 --- @return integer
@@ -14730,6 +15328,9 @@ function PickupCraftedAbilityScript(craftedAbilityScriptId) end
 
 --- @return bool
 function IsNewCharacterNotificationSuppressionActive() end
+
+--- @return bool
+function HasShownReturningPlayerAnnouncement() end
 
 --- @param aRotationRadians number
 --- @return void
@@ -14957,6 +15558,9 @@ function GetAbilityInfoByIndex(abilityIndex) end
 --- @return void
 function BlockAutomaticInputModeChange(shouldBlock) end
 
+--- @return bool
+function ShouldWarnConsoleAddOnSavedVariableLimit() end
+
 --- @param bagId Bag
 --- @param slotIndex integer
 --- @return ItemSellInformation
@@ -15121,6 +15725,9 @@ function WorldPositionToGuiRender3DPosition(worldX, worldY, worldZ) end
 --- @return integer|nil
 function GetEmoteCollectibleId(emoteIndex) end
 
+--- @return string
+function GetReturningPlayerCampaignDisplayName() end
+
 --- @param rewardDefId integer
 --- @return bool
 function HasClaimedAccountReward(rewardDefId) end
@@ -15168,12 +15775,19 @@ function GetProgressionSkillMorphSlotCurrentXP(progressionId, morphSlot) end
 --- @return bool
 function DoesGroupFinderUserTypeGroupListingRequireDLC(userType) end
 
+--- @param activeSpectacleEventId integer
+--- @return luaindex, integer
+function GetActiveSpectacleEventPhaseInfo(activeSpectacleEventId) end
+
 --- @return integer
 function GetGuildHistoryRequestMinCooldownMs() end
 
 --- @param categoryId integer
 --- @return luaindex|nil
 function GetLoreBookCategoryIndexFromCategoryId(categoryId) end
+
+--- @return ReturningPlayerInstanceJumpResult
+function GetExpectedJumpToReturningPlayerIntroGameplayResult() end
 
 --- @param guildId integer
 --- @return bool
@@ -15278,6 +15892,9 @@ function SetMapToPlayerLocation() end
 --- @return string, string, Alliance, GuildApplicationStatus
 function GetPlayerApplicationNotificationInfo(index) end
 
+--- @return ItemBonusSuppressionType, integer
+function GetItemPoisonSuppressionInfo() end
+
 --- @param index luaindex
 --- @return string, bool
 function GetGroupFinderFilterSecondaryOptionByIndex(index) end
@@ -15344,6 +15961,11 @@ function SetMapToMapId(mapId) end
 --- @return string
 function GetCollectibleCategoryNameByCollectibleId(collectibleId) end
 
+
+--- @private
+--- @return void
+function RequestJumpToReturningPlayerIntroGameplay() end
+
 --- @param userType GroupFinderGroupListingUserType
 --- @param name string
 --- @return void
@@ -15373,6 +15995,9 @@ function GetCurrentCharacterSlotsUpgrade() end
 --- @param lastAntiquityId integer|nil
 --- @return integer|nil
 function GetNextAntiquityId(lastAntiquityId) end
+
+--- @return void
+function ResetGamepadDeadzonesToDefault() end
 
 --- @return bool
 function IsCommandKeyDown() end
@@ -15429,7 +16054,7 @@ function GetUnitTitle(unitTag) end
 function RemoveMapQuestPins(journalQuestIndex) end
 
 --- @param itemLink string
---- @return integer, integer, integer, integer
+--- @return integer, integer, integer, integer, integer, integer
 function GetItemLinkStacks(itemLink) end
 
 --- @param outfitStyleId integer
@@ -15564,6 +16189,9 @@ function GetNextDirtyUnlockStateCollectibleId(lastCollectibleId) end
 --- @return string
 function GetTributePatronRequirementText(patronId, favorState, requirementIndex) end
 
+--- @return integer
+function GetNumberOfAvailableSynergies() end
+
 --- @return void
 function RequestCreateGroupListing() end
 
@@ -15625,6 +16253,10 @@ function ZoUTF8StringLength(string) end
 --- @param activitySetId integer
 --- @return bool
 function IsLFGActivitySetDisabled(activitySetId) end
+
+--- @param itemLink string
+--- @return bool
+function IsItemLinkUsableOutsideVengeance(itemLink) end
 
 --- @param filterType TradingHouseFilterType
 --- @param minValue integer|nil
@@ -15755,6 +16387,11 @@ function GetGamepadLeftTriggerMagnitude() end
 --- @return void
 function AddIgnore(charOrDisplayName) end
 
+--- @param synergyAbilityId integer
+--- @param priority integer
+--- @return void
+function SetSynergyPriorityOverride(synergyAbilityId, priority) end
+
 --- @param index luaindex
 --- @return string, string
 function GetIgnoredInfo(index) end
@@ -15771,6 +16408,10 @@ function GetChampionSkillMaxPoints(championSkillId) end
 
 --- @return textureName
 function GetAntiquityLeadIcon() end
+
+--- @param synergyAbilityId integer
+--- @return integer
+function GetSynergyPriorityOverride(synergyAbilityId) end
 
 --- @param journalQuestIndex luaindex
 --- @param toolIndex luaindex
@@ -15820,6 +16461,10 @@ function StartBlock() end
 --- @param eventIndex luaindex
 --- @return integer53, integer53, bool, GuildHistoryActivityEvent, string
 function GetGuildHistoryActivityEventInfo(guildId, eventIndex) end
+
+--- @param journalQuestIndex luaindex
+--- @return bool
+function CanAbandonJournalQuest(journalQuestIndex) end
 
 --- @param abilityId integer
 --- @param casterUnitTag string
@@ -16019,6 +16664,13 @@ function CanSmithingApparelPatternsBeCraftedHere() end
 --- @return integer
 function GetMaxSimultaneousSmithingResearch(craftingSkillType) end
 
+--- @param questId integer
+--- @return QuestType
+function GetQuestType(questId) end
+
+--- @return integer
+function GetFurnitureVaultCollectibleId() end
+
 --- @param filename string
 --- @param playImmediately bool
 --- @param skipMode VideoSkipMode
@@ -16072,6 +16724,11 @@ function GetRewardAnnouncementBackgroundFileIndex(rewardId) end
 --- @return void
 function SetGroupFinderFilterRequiresInviteCode(setState) end
 
+--- @param journalQuestIndex luaindex
+--- @param rewardIndex luaindex
+--- @return integer
+function GetJournalQuestRewardActiveSpectacleEventId(journalQuestIndex, rewardIndex) end
+
 --- @param index luaindex
 --- @private
 --- @return void
@@ -16083,16 +16740,15 @@ function PlayDefaultQuickChat(index) end
 --- @return string
 function GetMarketProductItemLink(marketProductId, linkStyle) end
 
+--- @return string
+function GetReturningPlayerIntroGameplayDescription() end
+
 --- @param unitTag string
 --- @return integer
 function GetUnitAlliance(unitTag) end
 
 --- @return bool
 function ShouldMapShowPriorityFastTravelOnly() end
-
---- @param marketProductId integer
---- @return integer, bool, luaindex|nil, luaindex|nil
-function GetMarketProductUnlockedByAchievementInfo(marketProductId) end
 
 --- @return void
 function ChromaClearHeadsetEffect() end
@@ -16108,6 +16764,10 @@ function SetSCTSlotEventControlScales(slotIndex, defaultScale, critScale) end
 
 --- @return integer
 function GetCurrentHousePopulation() end
+
+--- @param lastSlotId integer|nil
+--- @return integer|nil
+function GetNextFurnitureVaultSlotId(lastSlotId) end
 
 --- @param campaignKey id64
 --- @return integer
@@ -16161,6 +16821,10 @@ function GetActivityTypeAndIndex(activityId) end
 --- @return LeaderboardDataReadyState
 function QueryBattlegroundLeaderboardData(battlegroundType) end
 
+--- @param perkDefId luaindex
+--- @return bool
+function IsVengeancePerkDisabled(perkDefId) end
+
 --- @return integer
 function GetNumHousesRecommendedByLocalPlayer() end
 
@@ -16201,6 +16865,10 @@ function GetRecipeResultItemInfo(recipeListIndex, recipeIndex) end
 --- @param giftId id64
 --- @return ClientGiftState, bool, integer, string, string, integer, string, integer
 function GetGiftInfo(giftId) end
+
+--- @param rewardIndex luaindex
+--- @return id64, PromotionalEventCampaignComponentType, luaindex
+function GetReturningPlayerPrimaryRewardData(rewardIndex) end
 
 --- @param antiquityCategoryId integer
 --- @return integer
@@ -16338,6 +17006,9 @@ function GetSecondsInCampaignQueue(campaignId, queueAsGroup) end
 --- @return integer, bool, number, number
 function GetKeepTravelNetworkNodeInfo(nodeIndex, bgContext) end
 
+--- @return number
+function GetTotalUserAddOnCPUTimeUsedNowMS() end
+
 --- @param index luaindex
 --- @param linkStyle LinkStyle
 --- @return string
@@ -16417,6 +17088,10 @@ function HasExpiringMarketCurrency() end
 --- @param helpIndex luaindex
 --- @return integer|nil
 function GetHelpId(helpCategoryIndex, helpIndex) end
+
+--- @param index luaindex
+--- @return VengeanceActionResult
+function CanLoadoutRoleBeEquippedByIndex(index) end
 
 --- @param championSkillId integer
 --- @return number, number
@@ -16500,6 +17175,12 @@ function GetNumEndlessDungeonOfTheWeekDuoLeaderboardEntries() end
 --- @return void
 function OpenChapterUpgradeURL(chapterId, isCollectorsEdition, source) end
 
+--- @param slotFlag VengeancePerkSlotFlags
+--- @param slotIndex luaindex
+--- @param roleIndex luaindex|nil
+--- @return bool
+function IsVengeancePerkAtSlotIndexDisabled(slotFlag, slotIndex, roleIndex) end
+
 --- @param bagId Bag
 --- @param slotIndex integer
 --- @return TradeskillType, ItemType, integer|nil, integer|nil, integer|nil
@@ -16556,6 +17237,9 @@ function GetNumAntiquityLoreEntries(antiquityId) end
 --- @param rangeIndex luaindex
 --- @return integer53, integer53, integer53, integer53
 function GetGuildHistoryEventRangeInfo(guildId, category, rangeIndex) end
+
+--- @return bool
+function ShouldWarnConsoleAddOnMemoryLimit() end
 
 --- @param itemLink string
 --- @return bool
@@ -16656,6 +17340,9 @@ function HousingEditorSetPreviewInspectionEnabled(enabled) end
 --- @param eventId integer53
 --- @return luaindex|nil
 function GetGuildHistoryEventRangeIndexForEventId(guildId, category, eventId) end
+
+--- @return bool
+function IsInReturningPlayerIntroWorld() end
 
 
 --- @private
@@ -16852,6 +17539,11 @@ function GetNumCampaignAllianceLeaderboardEntries(campaignId, alliance) end
 --- @return integer
 function GetNumSkillTypes() end
 
+--- @param skillType SkillType
+--- @param skillLineIndex luaindex
+--- @return integer
+function GetSkillLinePointCostMultiplier(skillType, skillLineIndex) end
+
 --- @param bagId Bag
 --- @param slotIndex integer
 --- @return string|nil
@@ -16977,6 +17669,12 @@ function GetSkillAbilityIndicesFromProgressionIndex(progressionIndex) end
 --- @param achievementId integer
 --- @return integer53
 function GetAchievementTimestamp(achievementId) end
+
+--- @param slotIndex luaindex
+--- @param aSlotFlag VengeancePerkSlotFlags
+--- @param roleIndex luaindex|nil
+--- @return VengeanceActionResult
+function CanPerkBeSlottedInSlotForRole(slotIndex, aSlotFlag, roleIndex) end
 
 --- @param antiquityId integer
 --- @return AntiquityDifficulty
@@ -17115,6 +17813,10 @@ function SetRestylePreviewMode(restyleMode) end
 --- @return integer
 function GetMaxNumSavedKeybindings() end
 
+--- @param skillLineIdsToDeactivate integer
+--- @return void
+function DeactivateSkillLinesInAllocationRequest(skillLineIdsToDeactivate) end
+
 --- @param abilityId integer
 --- @protected
 --- @return void
@@ -17154,8 +17856,9 @@ function GetItemId(bagId, slotIndex) end
 
 --- @param campaignKey id64
 --- @param activityIndex luaindex
+--- @param choiceId integer|nil
 --- @return void
-function TryClaimPromotionalEventActivityReward(campaignKey, activityIndex) end
+function TryClaimPromotionalEventActivityReward(campaignKey, activityIndex, choiceId) end
 
 --- @param bagId Bag
 --- @param slotIndex integer
@@ -17412,6 +18115,9 @@ function GetCompanionName(companionId) end
 --- @return bool
 function IsPlayerTryingToMove() end
 
+--- @return bool
+function IsCommunicationRestrictedAccount() end
+
 --- @param combinationId integer
 --- @param unlockedCollectibleIndex luaindex
 --- @return integer
@@ -17453,6 +18159,9 @@ function GetItemLinkTraitCategory(itemLink) end
 --- @param craftedAbilityId integer
 --- @return integer, integer, integer
 function GetCraftedAbilityActiveScriptIds(craftedAbilityId) end
+
+--- @return bool
+function IsCommunicationRestricted() end
 
 --- @return integer|nil
 function GetCursorEmoteId() end
@@ -17510,6 +18219,10 @@ function SetSpectatorCameraEnabled(enable) end
 --- @param collectibleId integer
 --- @return string, string
 function GetCollectibleQuestPreviewInfo(collectibleId) end
+
+--- @param defId integer
+--- @return textureName
+function GetVengeancePerkIcon(defId) end
 
 --- @param rewardId integer
 --- @return integer, integer
@@ -17644,6 +18357,9 @@ function IsItemLinkPlaceableFurniture(itemLink) end
 --- @return GuildBlacklistResponse
 function IsGuildBlacklistAccountNameValid(guildId, accountName) end
 
+--- @return bool
+function IsInteractVOPlaying() end
+
 --- @param abilityId integer
 --- @param casterUnitTag string
 --- @return string
@@ -17705,6 +18421,13 @@ function ShowEsoPlusPage(source) end
 --- @param resultIndex luaindex
 --- @return string, textureName, integer, integer, bool, EquipType, ItemType, integer, ItemDisplayQuality, ItemUISoundCategory, integer
 function GetLastCraftingResultItemInfo(resultIndex) end
+
+--- @param patronDraftId TributePatronDraftId
+--- @return integer
+function GetDraftedPatronId(patronDraftId) end
+
+--- @return bool
+function IsLFGAccountDisabled() end
 
 --- @param allocationMode SkillPointAllocationMode
 --- @return integer
@@ -17771,6 +18494,11 @@ function GetBattlegroundNumUsedMedals(battlegroundId) end
 --- @return void
 function CancelEditGroupListing() end
 
+--- @param zoneIndex luaindex
+--- @param poiIndex luaindex
+--- @return integer
+function GetActiveSpectacleEventIdsForPOI(zoneIndex, poiIndex) end
+
 --- @return void
 function ClearTrackedPromotionalEventActivity() end
 
@@ -17811,8 +18539,12 @@ function IsValidName(name) end
 --- @return bool
 function IsItemLinkEnchantingRune(itemLink) end
 
+--- @param synergyAbilityId integer
+--- @return void
+function ClearSynergyPriorityOverride(synergyAbilityId) end
+
 --- @param itemSetId integer
---- @return ItemSetSuppressionType, integer
+--- @return ItemBonusSuppressionType, integer
 function GetItemSetSuppressionInfo(itemSetId) end
 
 --- @param raidId integer

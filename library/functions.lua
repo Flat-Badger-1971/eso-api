@@ -51,19 +51,12 @@ function ZO_TradingHouse_CreateItemData(index, icon, name, displayQuality, stack
 --- @param control userdata
 --- @return any
 function ZO_KeyboardGuildRosterRowStatus_OnMouseEnter(control) end
---- @param ... any
---- @return any
-function ZO_BadlandsBackground_LogoCorruptAnimation_OnStop(...) end
 --- @param itemLink any
 --- @return any
 function GetItemLinkGlyphMinMaxLevels(itemLink) end
 --- @param control userdata
 --- @return any
 function ZO_TwoButtonDialogEditBox_OnFocusLost(control) end
---- @param animation any
---- @param progress any
---- @return any
-function ZO_MagmaBackgroundAnimation_ParticleLoop_OnUpdate(animation, progress) end
 --- @param control userdata
 --- @return any
 function ZO_CharacterSelectChapterUpgradeRegisterButton_OnMouseEnter(control) end
@@ -305,6 +298,8 @@ function ZO_TributeDiscardCounterTooltip_Gamepad_GetControl() end
 --- @param self userdata
 --- @return any
 function ZO_Notifications_OnInitialized(self) end
+--- @return any
+function ZO_PregameStateManager_ReenterLoginState() end
 --- @param control userdata
 --- @return any
 function ZO_CharacterCreate_Gamepad_Initialize(control) end
@@ -389,6 +384,8 @@ function ZO_ExplorationUtils_GetPlayerCurrentZoneId() end
 --- @param control userdata
 --- @return any
 function ZO_KeyboardGuildRosterRowClass_OnMouseEnter(control) end
+--- @return any
+function ZO_PregameIsFullyLoaded() end
 --- @param control userdata
 --- @return any
 function ZO_QuestReward_MouseExit(control) end
@@ -634,6 +631,10 @@ function ZO_GetChampionIconMarkupString(iconSize) end
 --- @param self userdata
 --- @return any
 function ZO_MenuBarTooltipButton_OnMouseEnter(self) end
+--- @param stateName string
+--- @param ... any
+--- @return any
+function ZO_PregameStateManager_SetState(stateName, ...) end
 --- @return any
 function ZO_WorldMap_OnHide() end
 --- @param control userdata
@@ -757,8 +758,6 @@ function ZO_FormatFraction(numerator, denominator) end
 --- @param rowControl any
 --- @return any
 function ZO_TradingHouseSearchHistoryRow_Keyboard_OnMouseEnter(rowControl) end
---- @return any
-function PregameStateManager_GetPreviousState() end
 --- @param control userdata
 --- @return any
 function ZO_CampaignBrowserRowGroupMembers_OnMouseEnter(control) end
@@ -772,9 +771,6 @@ function ZO_CraftingUtils_ConnectMenuBarToCraftingProcess(menuBar) end
 --- @param control userdata
 --- @return any
 function ZO_RetraitStation_Retrait_Keyboard_OnTraitRowMouseExit(control) end
---- @param self userdata
---- @return any
-function ZO_SummersetBackground_OnInitialized(self) end
 --- @param value any
 --- @return any
 function zo_saturate(value) end
@@ -819,10 +815,6 @@ function ZO_CraftingUtils_ConnectComboBoxToCraftingProcess(comboBox) end
 --- @param entryControl any
 --- @return any
 function ZO_GetSharedGamepadEntryDefaultNarrationText(entryData, entryControl) end
---- @param charId number
---- @param loadOption any
---- @return any
-function PregameStateManager_PlayCharacter(charId, loadOption) end
 --- @param label userdata
 --- @param selected any
 --- @return any
@@ -1170,6 +1162,8 @@ function ZO_FriendsListRowNote_OnClicked(control) end
 --- @param control userdata
 --- @return any
 function ZO_GuildBrowser_GuildList_Alliance_OnMouseEnter(control) end
+--- @return any
+function ZO_AttemptQuickLaunch() end
 --- @param control userdata
 --- @return any
 function ZO_TributeMechanicSelector_OnInitialized(control) end
@@ -1395,9 +1389,6 @@ function ZO_GamepadGenericHeader_Initialize(control, createTabBar, layout) end
 function ZO_ScrollList_SetTypeCategoryHeader(self, typeId, isHeader) end
 --- @return any
 function DoAllGroupMembersHavePreferredRole() end
---- @param externalStates any
---- @return any
-function PregameStateManager_AddKeyboardStates(externalStates) end
 --- @param control userdata
 --- @return any
 function ZO_GroupFinder_AdditionalFilters_OnChampionPointsFocusLost(control) end
@@ -1474,9 +1465,8 @@ function ZO_HUDInfamyMeter_Initialize(control) end
 --- @param control userdata
 --- @return any
 function ZO_GuildHeraldry_Gamepad_OnInitialized(control) end
---- @param concreteClass any
 --- @return any
-function RemoveConcreteClass(concreteClass) end
+function RemoveConcreteClass() end
 --- @param id number
 --- @return any
 function zo_getSafeId64Key(id) end
@@ -1533,6 +1523,8 @@ function ZO_Keybindings_GetBindingStringFromAction(actionName, textOptions, text
 --- @param command any
 --- @return any
 function ZO_BindKeyDialog_Gamepad_OnMouseWheel(delta, ctrl, alt, shift, command) end
+--- @return any
+function ZO_PregameStateManager_ClearError() end
 --- @param control userdata
 --- @return any
 function ZO_TabButton_Text_GetText(control) end
@@ -1571,8 +1563,6 @@ function ZO_QuestJournal_OnQuestIconMouseExit() end
 function ZO_GameMenu_OnHide(control) end
 --- @return any
 function ZO_ShouldShowEULAScreen() end
---- @return any
-function RegisterForLoadingUpdates() end
 --- @param self userdata
 --- @return any
 function ZO_GuildWeeklyBidsTopLevel_Gamepad_OnInitialized(self) end
@@ -1652,8 +1642,6 @@ function ZO_CampaignBrowser_GetPopulationIcon(population) end
 --- @param self userdata
 --- @return any
 function ZO_Death_OnEffectivelyShown(self) end
---- @return any
-function AttemptToAdvancePastChapterOpeningCinematic() end
 --- @param self userdata
 --- @return any
 function ZO_DeathRecap_OnInitialized(self) end
@@ -1671,10 +1659,6 @@ function ZO_ConfirmSendGiftDialog_Keyboard_OnInitialized(self) end
 --- @param craftingType any
 --- @return any
 function CanItemBeSmithingExtractedOrRefined(bagId, slotIndex, craftingType) end
---- @param timeline any
---- @param completedPlaying any
---- @return any
-function ZO_TributeCard_StateEffectTimeline_OnStop(timeline, completedPlaying) end
 --- @param self userdata
 --- @param typeId number
 --- @param templateName string
@@ -1685,6 +1669,10 @@ function ZO_TributeCard_StateEffectTimeline_OnStop(timeline, completedPlaying) e
 --- @param resetControlCallback any
 --- @return any
 function ZO_ScrollList_AddDataType(self, typeId, templateName, height, setupCallback, hideCallback, dataTypeSelectSound, resetControlCallback) end
+--- @param timeline any
+--- @param completedPlaying any
+--- @return any
+function ZO_TributeCard_StateEffectTimeline_OnStop(timeline, completedPlaying) end
 --- @param self userdata
 --- @return any
 function ZO_ScrollAnimation_OnExtentsChanged(self) end
@@ -1707,9 +1695,9 @@ function ZO_Quickslot_Keyboard_OnInitialize(control) end
 function ZO_QuitDialog_Keyboard_OnInitialized(self) end
 --- @return any
 function OnFastTravelEnd() end
---- @param self userdata
+--- @param currencyType any
 --- @return any
-function ZO_GreymoorBackground_OnInitialized(self) end
+function ZO_PlayCurrencyAcquiredSound(currencyType) end
 --- @param control userdata
 --- @return any
 function ZO_OptionsPanel_Social_MinAlphaOnShow(control) end
@@ -1866,8 +1854,9 @@ function ZO_Provisioner_GetVisibleSceneName() end
 --- @param anchorPointRelativeTo any
 --- @param anchorOffsetX any
 --- @param anchorOffsetY any
+--- @param useRelativeAnchors any
 --- @return any
-function ZO_Rewards_Shared_OnMouseEnter(control, anchorPoint, anchorPointRelativeTo, anchorOffsetX, anchorOffsetY) end
+function ZO_Rewards_Shared_OnMouseEnter(control, anchorPoint, anchorPointRelativeTo, anchorOffsetX, anchorOffsetY, useRelativeAnchors) end
 --- @param self userdata
 --- @param useFadeGradient any
 --- @return any
@@ -1953,11 +1942,11 @@ function ZO_ReanchorControlForLeftSidePanel(control) end
 --- @param label userdata
 --- @return any
 function ZO_SetGuildCreateError(label) end
+--- @return any
+function ZO_SoundEvents_OnInitialized() end
 --- @param control userdata
 --- @return any
 function ZO_AllianceChangeIndicator_Initialize(control) end
---- @return any
-function ZO_SoundEvents_OnInitialized() end
 --- @param swatchControl any
 --- @return any
 function ZO_GuildHeraldry_DyeingSwatch_OnMouseEnter(swatchControl) end
@@ -2122,9 +2111,6 @@ function ZO_CampaignBonuses_AbilitySlot_OnMouseExit() end
 --- @param currencyType any
 --- @return any
 function GetMaxGuildBankCurrencyAmount(currencyType) end
---- @param state any
---- @return any
-function PregameStateManager_AdvanceStateFromState(state) end
 --- @param control userdata
 --- @param upInside any
 --- @return any
@@ -2177,8 +2163,6 @@ function ZO_CollectibleTile_Keyboard_OnInitialized(control) end
 --- @param control userdata
 --- @return any
 function ZO_InventoryWallet_OnInitialize(control) end
---- @return any
-function PregameStateManager_AdvanceState() end
 --- @param control userdata
 --- @return any
 function ZO_CharacterCreate_GamepadLoreInfo_Initialize(control) end
@@ -2385,6 +2369,8 @@ function ZO_AntiquityJournal_Keyboard_OnInitialized(control) end
 --- @param control userdata
 --- @return any
 function ZO_TributeRewards_Gamepad_OnInitialized(control) end
+--- @return any
+function ZO_Pregame_UnregisterForLoadingUpdates() end
 --- @param control userdata
 --- @return any
 function ZO_MarketProductTemplateKeyboard_OnMouseExit(control) end
@@ -2502,13 +2488,15 @@ function ZO_SharedInventory_SelectAccessibleGuildBank(lastSuccessfulGuildBankId)
 function ZO_TradingHouse_SearchResult_TraitInfo_OnMouseExit(control) end
 --- @return any
 function ZO_CharacterSelect_Gamepad_HasPlayableCharacterSelected() end
+--- @return any
+function ZO_IsPlayingChapterOpeningCinematic() end
+--- @param control userdata
+--- @return any
+function ZO_HousingEditorActionBar_OnInitialize(control) end
 --- @param battlegroundTeam any
 --- @param size any
 --- @return any
 function ZO_GetBattlegroundIconMarkup(battlegroundTeam, size) end
---- @param control userdata
---- @return any
-function ZO_HousingEditorActionBar_OnInitialize(control) end
 --- @param label userdata
 --- @param over any
 --- @return any
@@ -2726,11 +2714,17 @@ function CreateBackgroundParameterAngle(parameterKey, defaultValue, minValue, ma
 function ZO_Leaderboards_OnInitialized(self) end
 --- @return any
 function ZO_CharacterSelect_Gamepad_RefreshHeader() end
+--- @param control userdata
+--- @return any
+function ZO_Skills_SubclassSkillLine_OnMouseEnter(control) end
 --- @param skillLineInfo any
 --- @param skillLineData any
 --- @param forceInit any
+--- @param animateInstantly any
+--- @param isDisabled boolean
+--- @param isSubclassing boolean
 --- @return any
-function ZO_SkillLineInfo_Keyboard_Refresh(skillLineInfo, skillLineData, forceInit) end
+function ZO_SkillLineInfo_Keyboard_Refresh(skillLineInfo, skillLineData, forceInit, animateInstantly, isDisabled, isSubclassing) end
 --- @param text any
 --- @param segmentLength any
 --- @param delimiter any
@@ -2862,6 +2856,8 @@ function ZO_IsElementInNonContiguousTable(t, element) end
 --- @return any
 function ZO_OptionsPanel_Account_CanResendActivation() end
 --- @return any
+function ZO_AttemptToAdvancePastCharacterSelectCinematic() end
+--- @return any
 function ZO_CharacterWindowStats_HideComparisonValues() end
 --- @return any
 function ZO_IsScryingUnlocked() end
@@ -2891,13 +2887,8 @@ function ZO_Trade_Gamepad_OnInitialize(control) end
 function ZO_ArmoryBuildSettingsDialog_OnInitialized(self) end
 --- @return any
 function ZO_Currency_GetPlayerCarriedGoldCurrencyNameNarration() end
---- @param sceneName string
---- @return any
-function Pregame_ShowScene(sceneName) end
 --- @return any
 function ZO_WorldMap_ShowAvAKeepRecall() end
---- @return any
-function PregameStateManager_ShowLoginRequested() end
 --- @param label userdata
 --- @param button userdata
 --- @param upInside any
@@ -2956,10 +2947,6 @@ function ZO_MenuBar_SelectFirstVisibleButton(self, skipAnimation) end
 --- @param dyeChannel any
 --- @return any
 function ZO_Dyeing_Gamepad_SwatchSlot_Highlight_Only(control, dyeChannel) end
---- @param animation any
---- @param progress any
---- @return any
-function ZO_MagmaBackgroundAnimation_SceneTimeLoop_OnUpdate(animation, progress) end
 --- @return any
 function ZO_ChatSystem_OnMinMaxClicked() end
 --- @param self userdata
@@ -3120,6 +3107,9 @@ function ZO_TributeTargetViewerCardTile_Keyboard_OnInitialized(control) end
 --- @param value any
 --- @return any
 function ZO_CharacterCreateSlider_GetVoiceName(value) end
+--- @param control userdata
+--- @return any
+function ZO_Skills_SubclassSkillLine_Untrain_OnMouseExit(control) end
 --- @param source any
 --- @return any
 function ZO_CreateSortableTableFromKeys(source) end
@@ -3225,6 +3215,9 @@ function ZO_BattlegroundScoreboard_Aggregate_OnMouseEnter(control) end
 function ZO_ObjectiveCapture_UpdateCaptureBar(progress) end
 --- @return any
 function ZO_CreateLinkAccount_SetNewAccountMode() end
+--- @param tooltipControl any
+--- @return any
+function ZO_InformationTooltip_Cleared(tooltipControl) end
 --- @param self userdata
 --- @param params any
 --- @return any
@@ -3242,10 +3235,10 @@ function ZO_CampaignLeaderboardSelector_ButtonOnMouseEnter(self) end
 function ZO_PlayerEmote_Keyboard_Initialize(control) end
 --- @param control userdata
 --- @return any
-function ZO_QuestJournal_Gamepad_OnInitialized(control) end
+function ZO_ItemPreview_Keyboard_OnInitialize(control) end
 --- @param control userdata
 --- @return any
-function ZO_ItemPreview_Keyboard_OnInitialize(control) end
+function ZO_QuestJournal_Gamepad_OnInitialized(control) end
 --- @param control userdata
 --- @return any
 function ZO_RoleMultiSelectorButton_OnMouseExit(control) end
@@ -3307,8 +3300,6 @@ function ZO_WorldMap_ResetCustomPinsOfType(pinTypeString) end
 --- @param self userdata
 --- @return any
 function ZO_CustomDialogButton_OnInitialized(self) end
---- @return any
-function IsInCharacterCreateState() end
 --- @param searchResultSlot any
 --- @return any
 function ZO_TradingHouse_OnSearchResultMouseExit(searchResultSlot) end
@@ -3324,6 +3315,8 @@ function ZO_FormatUserFacingDisplayName(name) end
 --- @param control userdata
 --- @return any
 function ZO_TabButton_Text_RestoreDefaultColors(control) end
+--- @return any
+function ZO_IsInCharacterSelectCinematicState() end
 --- @param control userdata
 --- @return any
 function ZO_MultipleCraftingSkillsXpBar_UntieSkillInfoHeaderToCraftingTypes(control) end
@@ -3410,6 +3403,11 @@ function ZO_DailyLoginRewards_GridEntry_Template_Keyboard_OnMouseEnter(control) 
 --- @param control userdata
 --- @return any
 function ZO_GroupListRowClass_OnMouseExit(control) end
+--- @param tooltipControl any
+--- @param gameDataType any
+--- @param ... any
+--- @return any
+function ZO_InformationTooltip_OnAddGameData(tooltipControl, gameDataType, ...) end
 --- @return any
 function ZO_CharacterSelect_Gamepad_BeginRename() end
 --- @param control userdata
@@ -3486,8 +3484,6 @@ function ZO_ScrollList_GetAutoSelectIndex(self) end
 --- @param control userdata
 --- @return any
 function ZO_ActivityFinderRoot_Gamepad_OnInitialize(control) end
---- @return any
-function UnregisterForLoadingUpdates() end
 --- @param control userdata
 --- @return any
 function ZO_ItemPreview_Gamepad_OnInitialize(control) end
@@ -3589,6 +3585,8 @@ function ZO_Dialogs_IsDialogExemptFromDialogQueuePause(dialogName, dialogData) e
 --- @param control userdata
 --- @return any
 function ZO_MarketAnnouncement_Gamepad_OnInitialize(control) end
+--- @return any
+function ZO_AttemptToFireCharacterConstructionReady() end
 --- @param battlegroundTeam any
 --- @return any
 function ZO_GetGamepadBattlegroundTeamIcon(battlegroundTeam) end
@@ -3746,9 +3744,8 @@ function ZO_ScrollList_RefreshLastHoldPosition(self) end
 --- @param control userdata
 --- @return any
 function ZO_BuyBagSpace_Gamepad_Initialize(control) end
---- @param control userdata
 --- @return any
-function ZO_ArmoryActionButton_Keyboard_OnMouseExit(control) end
+function ZO_PregameStateManager_CanHideGui() end
 --- @param name string
 --- @return any
 function ZO_Keybindings_GenerateTextKeyMarkup(name) end
@@ -3852,9 +3849,6 @@ function ZO_GuildRecruitment_ApplicationsList_Row_OnMouseEnter(control) end
 function ZO_GamepadGrid_AnchorToNav(control, navLocation) end
 --- @param control userdata
 --- @return any
-function ZO_MagmaBackground_OnInitialized(control) end
---- @param control userdata
---- @return any
 function ZO_CurrencyTemplate_OnMouseEnter(control) end
 --- @param control userdata
 --- @return any
@@ -3886,6 +3880,11 @@ function ZO_PerformanceMeters_OnInitialized(control) end
 --- @param itemSellInformation any
 --- @return any
 function ZO_GetItemSellInformationIcon(itemSellInformation) end
+--- @param control userdata
+--- @param hasStaticAnchors any
+--- @param isManuallySized boolean
+--- @return any
+function ZO_PreloginOverlay_RegisterTextureControl(control, hasStaticAnchors, isManuallySized) end
 --- @param control userdata
 --- @return any
 function ZO_TradingHouse_SearchResult_TraitInfo_OnMouseEnter(control) end
@@ -4012,6 +4011,8 @@ function ZO_FadingControlBuffer_GetHeaderControl(header) end
 --- @param label userdata
 --- @return any
 function ZO_SelectableLabel_OnMouseEnter(label) end
+--- @return any
+function ZO_IsInCharacterCreateState() end
 --- @param self userdata
 --- @return any
 function ZO_PEGI_AgreementDialog_OnInitialized(self) end
@@ -4050,6 +4051,9 @@ function ZO_CurrencyTemplate_OnMouseExit(control) end
 --- @param control userdata
 --- @return any
 function ZO_Options_OnMouseEnter(control) end
+--- @param control userdata
+--- @return any
+function ZO_Skills_SubclassSkillLine_OnMouseExit(control) end
 --- @param button userdata
 --- @return any
 function ZO_CharacterCreateSlider_Keyboard_TogglePadlock(button) end
@@ -4094,9 +4098,6 @@ function ZO_GameMenu_AddSettingPanel(data) end
 --- @param selectable any
 --- @return any
 function ZO_ScrollList_SetTypeSelectable(self, typeId, selectable) end
---- @param ... any
---- @return any
-function ZO_BadlandsBackground_GroundBurntLeavesAnimation_OnStop(...) end
 --- @return any
 function ZO_UnitFrames_IsTargetOfTargetEnabled() end
 --- @param button userdata
@@ -4151,28 +4152,29 @@ function ZO_RestyleStation_OnInitialize(control) end
 function ZO_CraftAdvisor_Gamepad_OnInitialized(control) end
 --- @return any
 function ZO_Trade_OnMouseDown() end
---- @param animation any
---- @param progress any
---- @return any
-function ZO_BadlandsBackground_Unmask_SetProgress(animation, progress) end
 --- @param featureKey any
 --- @return any
 function ZO_TradingHouse_CreateGamepadFeature(featureKey) end
+--- @return any
+function ZO_PregameStateManager_GetPreviousState() end
+--- @param tooltipControl any
+--- @return any
+function ZO_ItemTooltip_ClearProgressBar(tooltipControl) end
 --- @param control userdata
 --- @return any
 function ZO_GuildFinder_Applications_Tooltip_Keyboard_OnInitialized(control) end
 --- @param control userdata
 --- @return any
 function ZO_GuildBrowser_GuildList_Row_OnMouseEnter(control) end
+--- @param self userdata
+--- @param lock any
+--- @return any
+function ZO_ScrollList_SetLockScrolling(self, lock) end
 --- @param baseValue any
 --- @param currentValue any
 --- @param defaultOverride any
 --- @return any
 function GetStatColor(baseValue, currentValue, defaultOverride) end
---- @param self userdata
---- @param lock any
---- @return any
-function ZO_ScrollList_SetLockScrolling(self, lock) end
 --- @param control userdata
 --- @param skillLineEntry any
 --- @param selected any
@@ -4190,6 +4192,9 @@ function ZO_SelectableLabel_SetMouseOverEnabled(label, enabled) end
 --- @param error any
 --- @return any
 function IsSocialErrorIgnoreResponse(error) end
+--- @param externalStates any
+--- @return any
+function ZO_PregameStateManager_AddGamepadStates(externalStates) end
 --- @param self userdata
 --- @return any
 function ZO_Death_OnEffectivelyHidden(self) end
@@ -4253,9 +4258,6 @@ function ZO_KeybindButton_ChromaBehavior_OnEffectivelyShown(self) end
 --- @param nodeIndex number
 --- @return any
 function ZO_WorldMap_PanToWayshrine(nodeIndex) end
---- @param self userdata
---- @return any
-function ZO_OverflowDialogInitialize(self) end
 --- @param control userdata
 --- @return any
 function ZO_Provisioner_IsQuestItemOnMouseEnter(control) end
@@ -4371,8 +4373,9 @@ function ZO_GamepadMarketKeybindStrip_RefreshStyle() end
 --- @param barMin any
 --- @param barMax any
 --- @param barValue any
+--- @param percentageFormat any
 --- @return any
-function ZO_GetProgressBarNarrationText(barMin, barMax, barValue) end
+function ZO_GetProgressBarNarrationText(barMin, barMax, barValue, percentageFormat) end
 --- @param control userdata
 --- @return any
 function ZO_Stable_Gamepad_Initialize(control) end
@@ -4407,8 +4410,6 @@ function ZO_GroupFinderGroupListingTooltip_Initialize(tooltipControl) end
 --- @param itemData any
 --- @return any
 function ZO_SharedSmithingImprovement_CanItemBeImproved(itemData) end
---- @return any
-function ZO_GameStartup_Gamepad_GetInitialLoginInfo() end
 --- @param editBox any
 --- @return any
 function ZO_CollectionsBook_OnSearchTextChanged(editBox) end
@@ -4422,6 +4423,10 @@ function ZO_Keybindings_OnInitialize(control) end
 --- @param control userdata
 --- @return any
 function ZO_GuildRecruitment_EditBoxTile_Gamepad_OnInitialized(control) end
+--- @param control userdata
+--- @param data userdata
+--- @return any
+function TreeEntryColorSetup(control, data) end
 --- @param parameterKey any
 --- @param defaultValue any
 --- @return any
@@ -4866,6 +4871,8 @@ function ZO_NotificationsTwoButtonAccept_OnClicked(control) end
 --- @param slotData any
 --- @return any
 function ZO_UpdateStatusControlIcons(inventorySlot, slotData) end
+--- @return any
+function ZO_AttemptToAdvancePastChapterOpeningCinematic() end
 --- @param equipmentFilterTypes any
 --- @return any
 function OnEquipmentFilterTypesChanged(equipmentFilterTypes) end
@@ -5085,6 +5092,8 @@ function ZO_MailInboxShared_TakeAll(mailId) end
 --- @return any
 function ZO_AddOnManagerPrimaryButton_Callback() end
 --- @return any
+function ZO_PregameStateManager_AdvanceState() end
+--- @return any
 function ZO_Provisioner_IsSceneShowing() end
 --- @param control userdata
 --- @param ... any
@@ -5125,8 +5134,9 @@ function ZO_RepairKits_OnInitialize(control) end
 --- @param skillData any
 --- @param overrideSlotIndex number
 --- @param overrideHotbar any
+--- @param isReadOnly boolean
 --- @return any
-function ZO_GamepadSkillEntryPreviewRow_Setup(control, skillData, overrideSlotIndex, overrideHotbar) end
+function ZO_GamepadSkillEntryPreviewRow_Setup(control, skillData, overrideSlotIndex, overrideHotbar, isReadOnly) end
 --- @param colorPicker any
 --- @param paletteIndex number
 --- @param r any
@@ -5167,11 +5177,6 @@ function ZO_BattlegroundLeaderboardsInformationArea_OnInitialized(self) end
 --- @param offsetY any
 --- @return any
 function ZO_Dyeing_Gamepad_Highlight(control, dyeControl, offsetX, offsetY) end
---- @param animation any
---- @param control userdata
---- @param completed any
---- @return any
-function ZO_MagmaBackgroundAnimation_Intro_OnStop(animation, control, completed) end
 --- @param nameOrDialog any
 --- @return any
 function ZO_Dialogs_ReleaseDialogOnButtonPress(nameOrDialog) end
@@ -5277,6 +5282,10 @@ function ZO_ScrollList_SetAutoSelect(self, autoSelect) end
 --- @param self userdata
 --- @return any
 function ZO_QuickSlotTab_Keyboard_FilterButtonOnMouseExit(self) end
+--- @param control userdata
+--- @param shift any
+--- @return any
+function ZO_Skills_SubclassSkillLine_OnClicked(control, shift) end
 --- @param self userdata
 --- @return any
 function ZO_Store_FilterButtonOnMouseExit(self) end
@@ -5314,11 +5323,11 @@ function ZO_CompanionEquipment_Keyboard_OnInitialize(control) end
 function ZO_GamepadCraftingUtils_InitializeGenericHeader(craftingObject, createTabBar) end
 --- @return any
 function ZO_ConveyorSceneFragment_SetMovingForward() end
---- @return any
-function ZO_Map_GetFastTravelNode() end
 --- @param control userdata
 --- @return any
 function ZO_HousingEditorHistory_Initialize(control) end
+--- @return any
+function ZO_Map_GetFastTravelNode() end
 --- @param template any
 --- @param templateData any
 --- @return any
@@ -5328,9 +5337,6 @@ function ZO_AlertAddTemplate_Gamepad(template, templateData) end
 function ZO_GenerateParagraphSeparatedList(argumentTable) end
 --- @return any
 function ZO_GetJewelryCraftingCollectibleData() end
---- @param self userdata
---- @return any
-function ZO_MorrowindBackground_OnInitialized(self) end
 --- @param control userdata
 --- @return any
 function ZO_GuildBrowser_GuildList_AdditionalFilters_OnClicked(control) end
@@ -5476,6 +5482,8 @@ function ZO_WorldMap_ToggleSize() end
 --- @param control userdata
 --- @return any
 function ZO_GuildRecruitment_ApplicationsList_Row_OnMouseExit(control) end
+--- @return any
+function UpdateProgressInfo() end
 --- @param rowControl any
 --- @return any
 function ZO_TradingHouseSearchHistoryRow_Keyboard_OnMouseClick(rowControl) end
@@ -5530,9 +5538,6 @@ function ZO_CampaignBonuses_OnInitialized(self) end
 --- @param control userdata
 --- @return any
 function ZO_ChampionAssignableActionSlot_OnMouseEnter(control) end
---- @param self userdata
---- @return any
-function ZO_ElsweyrBackground_OnInitialized(self) end
 --- @param control userdata
 --- @param button userdata
 --- @param upInside any
@@ -5575,8 +5580,10 @@ function ZO_ChampionStar_OnMouseExit(control) end
 --- @return any
 function ZO_PreferredRolesButton_OnMouseExit(control) end
 --- @param buttonControl any
+--- @param button userdata
+--- @param noSound any
 --- @return any
-function ZO_CheckButton_OnClicked(buttonControl) end
+function ZO_CheckButton_OnClicked(buttonControl, button, noSound) end
 --- @param control userdata
 --- @return any
 function ZO_CreateEditGroupListingButton_OnClicked(control) end
@@ -5586,6 +5593,8 @@ function DoesCollectibleRequireEntitlement(collectibleId) end
 --- @param tooltipControl any
 --- @return any
 function ZO_TributeResourceTooltip_Gamepad_Initialize(tooltipControl) end
+--- @return any
+function ZO_PregameStateManager_GetCurrentState() end
 --- @return any
 function ZO_HasActiveOrBlockedCompanion() end
 --- @param animation any
@@ -5617,10 +5626,8 @@ function ZO_GetPlatformAccountLabel() end
 --- @param control userdata
 --- @return any
 function ZO_WorldMapZoneStory_Gamepad_OnInitialized(control) end
---- @param concreteClass any
---- @param stackLevel any
 --- @return any
-function RegisterConcreteClass(concreteClass, stackLevel) end
+function RegisterConcreteClass() end
 --- @param statusEffectType any
 --- @return any
 function GetStatusEffectColor(statusEffectType) end
@@ -5671,6 +5678,11 @@ function ZO_Skills_AbilityIncrease_OnMouseEnter(control) end
 function ZO_GroupRolesBar_Gamepad_OnInitialized(control) end
 --- @return any
 function ZO_Smithing_IsSceneShowing() end
+--- @param faceName string
+--- @param size any
+--- @param style any
+--- @return any
+function ZO_CreateFontString(faceName, size, style) end
 --- @param handler any
 --- @return any
 function ZO_WorldMap_GetGamepadPinActionGroupForHandler(handler) end
@@ -5875,12 +5887,12 @@ function ZO_GuildBrowser_ApplicationsList_Row_OnMouseExit(control) end
 --- @param self userdata
 --- @return any
 function ZO_MainMenu_OnInitialized(self) end
+--- @return any
+function ZO_SceneManager_ToggleUIModeBinding() end
 --- @param descriptionLabel any
 --- @param gameTimeSecs any
 --- @return any
 function ZO_GuildKiosk_Purchase_OnUpdate(descriptionLabel, gameTimeSecs) end
---- @return any
-function ZO_SceneManager_ToggleUIModeBinding() end
 --- @param currencyType any
 --- @return any
 function ZO_Currency_GetAmountLabel(currencyType) end
@@ -5992,6 +6004,10 @@ function ZO_CharacterSelect_Gamepad_Login(option) end
 --- @param hookFunction? function
 --- @return any
 function ZO_PreHook(objectTable, existingFunctionName, hookFunction) end
+--- @param charId number
+--- @param loadOption any
+--- @return any
+function ZO_PregameStateManager_PlayCharacter(charId, loadOption) end
 --- @param control userdata
 --- @return any
 function ZO_ZoneStory_ActivityCompletionTile_Keyboard_OnInitialized(control) end
@@ -6124,10 +6140,9 @@ function ZO_CharacterWindowStats_RefreshKeybinds() end
 function ZO_InventorySlot_InitiateDestroyItem(inventorySlot) end
 --- @return any
 function ZO_Skills_AbilitySlot_OnMouseExit() end
---- @param animation any
---- @param progress any
+--- @param editBox any
 --- @return any
-function ZO_DuneBackgroundAnimation_Repeat_OnUpdate(animation, progress) end
+function ZO_Leaderboards_OnSearchTextChanged(editBox) end
 --- @param actionName string
 --- @param textOptions any
 --- @param textureOptions any
@@ -6292,6 +6307,13 @@ function ZO_CheckButton_Enable(buttonControl) end
 --- @param control userdata
 --- @return any
 function ZO_CreateLinkAccount_Initialize(control) end
+--- @param tooltipControl any
+--- @return any
+function ZO_InformationTooltip_Initialize(tooltipControl) end
+--- @param control userdata
+--- @param shift any
+--- @return any
+function ZO_Skills_SubclassSkillLine_Untrain_OnClicked(control, shift) end
 --- @param self userdata
 --- @return any
 function ZO_GuildCreate_OnInitialized(self) end
@@ -6359,6 +6381,8 @@ function ZO_InventoryUtils_UpdateTooltipEquippedIndicatorText(tooltipType, equip
 --- @param self userdata
 --- @return any
 function ZO_CampaignLeaderboardsInformationArea_OnInitialized(self) end
+--- @return any
+function ZO_UnitFrames_GetPlatformConstants() end
 --- @param control userdata
 --- @return any
 function ZO_HousingPathSettings_Gamepad_OnInitialized(control) end
@@ -6374,8 +6398,6 @@ function ZO_ScrollList_SetVisibilityFunction(self, typeId, visibilityFunction) e
 --- @param text any
 --- @return any
 function ZO_Dialogs_UpdateButtonText(dialog, buttonNumber, text) end
---- @return any
-function PregameStateManager_ClearError() end
 --- @param skillType any
 --- @param skillLineIndex number
 --- @return any
@@ -6506,8 +6528,6 @@ function ZO_TributePatronSelection_Keyboard_OnInitialized(control) end
 --- @param polygon any
 --- @return any
 function ZO_HexMaskPolygon_OnInitialized(polygon) end
---- @return any
-function PregameStateManager_GetCurrentState() end
 --- @return any
 function ZO_CreateLinkAccount_UpdateLinkAccountButton() end
 --- @param control userdata
@@ -6836,9 +6856,6 @@ function ZO_CampaignBonusEntryTemplateSetup(control, data, selected, reselecting
 --- @param header any
 --- @return any
 function ZO_WorldMapQuestHeader_OnMouseExit(header) end
---- @param control userdata
---- @return any
-function ZO_GameStartup_Gamepad_ServerAlert_Initialize(control) end
 --- @param self userdata
 --- @param button userdata
 --- @return any
@@ -6849,9 +6866,6 @@ function ZO_WorldMapKeepSummary_Gamepad_OnInitialized(self) end
 --- @param searchResultSlot any
 --- @return any
 function ZO_TradingHouse_OnSearchResultMouseEnter(searchResultSlot) end
---- @param control userdata
---- @return any
-function ZO_GameStartup_Gamepad_Initialize(control) end
 --- @param name string
 --- @param value any
 --- @return any
@@ -6960,10 +6974,6 @@ function ZO_HouseInformationTracker_OnInitialized(control) end
 --- @param control userdata
 --- @return any
 function ZO_ZoneStories_Keyboard_OnInitialize(control) end
---- @param animation any
---- @param progress any
---- @return any
-function ZO_MagmaBackgroundAnimation_Intro_OnUpdate(animation, progress) end
 --- @param buttonControl any
 --- @param checkState any
 --- @return any
@@ -7143,8 +7153,6 @@ function ZO_DoesConsoleSupportTargetedIgnore() end
 --- @param afterUpdateCallback any
 --- @return any
 function ZO_AuditObject(object, beforeUpdateCallback, afterUpdateCallback) end
---- @return any
-function PregameStateManager_ReenterLoginState() end
 --- @param tooltip any
 --- @return any
 function ClearTooltipImmediately(tooltip) end
@@ -7176,8 +7184,6 @@ function ZO_GetPlatformAllianceSymbolIcon(alliance) end
 --- @param control userdata
 --- @return any
 function ZO_ChatSystem_OnNotificationsExit(control) end
---- @return any
-function AttemptQuickLaunch() end
 --- @param self userdata
 --- @param yDistanceFromEdgeWhereSelectionCausesScroll any
 --- @return any
@@ -7289,6 +7295,8 @@ function ZO_HousingPreviewDialog_Keyboard_PreviewButton_OnClicked(control, butto
 --- @return any
 function ZO_CampaignBonuses_AbilitySlot_OnMouseEnter(control) end
 --- @return any
+function ZO_UpdateVisiblityOfHUDFragments() end
+--- @return any
 function ZO_AlertText_GetHandlers() end
 --- @param quality any
 --- @return any
@@ -7323,6 +7331,9 @@ function AddShieldCategory() end
 --- @param control userdata
 --- @return any
 function ZO_DailyRewardsTile_Keyboard_OnInitialized(control) end
+--- @param externalStates any
+--- @return any
+function ZO_PregameStateManager_AddKeyboardStates(externalStates) end
 --- @param control userdata
 --- @return any
 function ZO_CharacterCreateSkipTutorialDialog_Initialize(control) end
@@ -7388,16 +7399,13 @@ function ZO_ColorSwatchPicker_SetClickedCallback(colorPicker, callback) end
 --- @param anchorIndex number
 --- @return any
 function ZO_GamepadGrid_GetNavAnchor(navLocation, anchorIndex) end
---- @param stateName string
---- @param ... any
---- @return any
-function PregameStateManager_SetState(stateName, ...) end
 --- @return any
 function ZO_WorldMapInfo_Initialize() end
 --- @param buyStoreFailure any
 --- @param buyErrorStringId number
+--- @param reasonParam1 any
 --- @return any
-function ZO_StoreManager_GetRequiredToBuyErrorText(buyStoreFailure, buyErrorStringId) end
+function ZO_StoreManager_GetRequiredToBuyErrorText(buyStoreFailure, buyErrorStringId, reasonParam1) end
 --- @param combinationId number
 --- @return any
 function GetCombinationFirstNonFragmentCollectibleComponentId(combinationId) end
@@ -7527,9 +7535,9 @@ function ZO_InventorySlot_TraitInfo_OnMouseEnter(control) end
 --- @param currencyType any
 --- @return any
 function GetMaxBankDeposit(currencyType) end
---- @param stateName string
+--- @param state any
 --- @return any
-function PregameStateManager_GetState(stateName) end
+function ZO_PregameStateManager_AdvanceStateFromState(state) end
 --- @param m_Matrix33 any
 --- @param pointX any
 --- @param pointY any
@@ -7581,8 +7589,6 @@ function ZO_ScrollList_TrySelectFirstData(self, onScrollCompleteCallback, should
 --- @param control userdata
 --- @return any
 function ZO_CampaignBrowserRowIcon_OnMouseExit(control) end
---- @return any
-function PregameIsFullyLoaded() end
 --- @param self userdata
 --- @return any
 function ZO_ScrollList_AtBottomOfList(self) end
@@ -7997,11 +8003,6 @@ function ZO_CharacterGamepadEntry_OnInitialized(control) end
 --- @param control userdata
 --- @return any
 function ZO_GuildSharedInfoHeraldry_OnMouseEnter(control) end
---- @param animation any
---- @param control userdata
---- @param completed any
---- @return any
-function ZO_MagmaBackgroundAnimation_Intro_OnPlay(animation, control, completed) end
 --- @param control userdata
 --- @param button userdata
 --- @param upInside any
@@ -8080,6 +8081,9 @@ function ZO_CurrentCampaigns_GetName(campaignId) end
 --- @param characterData any
 --- @return any
 function ZO_CharacterSelect_GetFormattedLevelChampion(characterData) end
+--- @param control userdata
+--- @return any
+function ZO_SkillsTrainingInfo_Keyboard_OnMouseEnter(control) end
 --- @param control userdata
 --- @return any
 function ZO_DailyRewardsTile_Gamepad_OnInitialized(control) end
@@ -8528,6 +8532,14 @@ function ZO_ChromaGetCustomEffectCoordinatesForAction(actionName) end
 function ZO_TributePatronUsageTooltip_Gamepad_Initialize(tooltipControl) end
 --- @return any
 function ZO_IsForceConsoleFlow() end
+--- @param path any
+--- @param width any
+--- @param height any
+--- @param text any
+--- @param inheritColor any
+--- @param noGrammar any
+--- @return any
+function zo_iconTextFormatAlignedRight(path, width, height, text, inheritColor, noGrammar) end
 --- @param self userdata
 --- @return any
 function ZO_RaidLeaderboardsInformationArea_OnInitialized(self) end
@@ -8596,6 +8608,8 @@ function zo_arcSize(startAngle, angle) end
 --- @param trainType any
 --- @return any
 function SetTooltipToMountTrain(tooltip, trainType) end
+--- @return any
+function ZO_Dialogs_GetSkillsRespecMainTextEntryTable() end
 --- @param control userdata
 --- @return any
 function ZO_Rewards_Shared_OnMouseExit(control) end
@@ -8819,14 +8833,10 @@ function ZO_InventorySlot_DoPrimaryAction(inventorySlot) end
 --- @param animation any
 --- @param progress any
 --- @return any
-function ZO_DuneBackgroundAnimation_Intro_OnUpdate(animation, progress) end
---- @param animation any
---- @param progress any
---- @return any
 function ZO_ManualGemifySwing_OnUpdate(animation, progress) end
 --- @param control userdata
 --- @return any
-function ZO_DuneBackground_OnInitialized(control) end
+function ZO_Skills_SubclassSkillLine_SkillsListBackButton_OnClicked(control) end
 --- @param unitTag any
 --- @return any
 function GetGroupMemberRoles(unitTag) end
@@ -8919,8 +8929,10 @@ function ZO_Compass_AnimationIn_Size(animation, animatingControl) end
 --- @return any
 function ZO_SelectableLabel_OnMouseExit(label) end
 --- @param control userdata
+--- @param offsetX any
+--- @param isSubclassing boolean
 --- @return any
-function ZO_SkillInfoXPBar_OnMouseEnter(control) end
+function ZO_SkillInfoXPBar_OnMouseEnter(control, offsetX, isSubclassing) end
 --- @param control userdata
 --- @return any
 function ZO_OptionsPanel_Video_InitializeDisplays(control) end
@@ -8985,6 +8997,10 @@ function ZO_CancelCreateEditGroupListingButton_OnClicked(control) end
 --- @param self userdata
 --- @return any
 function ZO_TooltipIfTruncatedLabel_OnMouseExit(self) end
+--- @param control userdata
+--- @param skillData any
+--- @return any
+function ZO_Skills_ReadOnly_AbilityEntry_Setup(control, skillData) end
 --- @param featureKey any
 --- @return any
 function ZO_TradingHouse_CreateKeyboardFeature(featureKey) end
@@ -9125,6 +9141,9 @@ function ZO_CrownGemificationRow_OnMouseEnter(self) end
 --- @param control userdata
 --- @return any
 function ZO_FriendsListRowNote_OnMouseEnter(control) end
+--- @param control userdata
+--- @return any
+function ZO_SkillsTrainingInfo_Keyboard_OnMouseExit(control) end
 --- @return any
 function ZO_ChatSystem_GetEventCategoryMappings() end
 --- @param control userdata
@@ -9274,6 +9293,8 @@ function ZO_CreateScrollAnimation(scrollObject) end
 --- @param yDirection any
 --- @return any
 function ZO_ScrollList_SelectNextDataInDirection(self, xDirection, yDirection) end
+--- @return any
+function ZO_IsPreloginWorldReady() end
 --- @param control userdata
 --- @return any
 function ZO_NotificationsRowMoreInfo_OnMouseExit(control) end
@@ -9502,9 +9523,6 @@ function ZO_PlayerEmoteEntry_GetTextColor(entry) end
 --- @param ... any
 --- @return any
 function ZO_PropagateHandler(propagateTo, handlerName, ...) end
---- @param externalStates any
---- @return any
-function PregameStateManager_AddGamepadStates(externalStates) end
 --- @return any
 function IgnoreMouseDownEditFocusLoss() end
 --- @param self userdata
@@ -9624,6 +9642,9 @@ function ZO_BuffDebuffIcon_OnMouseExit(control) end
 --- @param keybindDescriptor any
 --- @return any
 function ZO_GamepadCraftingUtils_AddGenericCraftingBackKeybindsToDescriptor(keybindDescriptor) end
+--- @param control userdata
+--- @return any
+function ZO_SkillsSubclassing_SkillLine_Keyboard_OnInitialize(control) end
 --- @param self userdata
 --- @return any
 function ZO_GameMenu_CharacterCreate_Initialize(self) end
@@ -9730,6 +9751,11 @@ function ZO_EditDefaultText_Disable(control) end
 --- @param battlegroundTeam any
 --- @return any
 function ZO_GetKeyboardBattlegroundTeamIcon(battlegroundTeam) end
+--- @param control userdata
+--- @param button userdata
+--- @param upInside any
+--- @return any
+function ZO_Class_Header_Entry_Keyboard_OnMouseUp(control, button, upInside) end
 --- @param self userdata
 --- @param resetOnShow any
 --- @return any
@@ -9979,11 +10005,6 @@ function ZO_LinkHandler_CreateDisplayNameLink(displayName) end
 --- @return any
 function ZO_CopyHousingPermissionsDialog_OnInitialized(self) end
 --- @param dropdown any
---- @param changedCallback any
---- @param leaderboardType any
---- @return any
-function ZO_Leaderboards_PopulateDropdownFilter(dropdown, changedCallback, leaderboardType) end
---- @param dropdown any
 --- @return any
 function ZO_UpdateGuildStatusDropdownSelection(dropdown) end
 --- @param control userdata
@@ -10089,6 +10110,9 @@ function ZO_Gamepad_GuildKiosk_Purchase_OnInitialize(control) end
 --- @param control userdata
 --- @return any
 function ZO_MailView_Initialize_Send_Fields_Gamepad(control) end
+--- @param stateName string
+--- @return any
+function ZO_PregameStateManager_GetState(stateName) end
 --- @param state any
 --- @param var1 any
 --- @return any
@@ -10108,8 +10132,9 @@ function ZO_TrianglePicker_OnMouseEnter(control) end
 --- @return any
 function ZO_GamepadMarket_Locked_OnInitialize(control) end
 --- @param itemData any
+--- @param overrideTimeFormat any
 --- @return any
-function ZO_TradingHouse_GetItemDataFormattedTime(itemData) end
+function ZO_TradingHouse_GetItemDataFormattedTime(itemData, overrideTimeFormat) end
 --- @param header any
 --- @param stringId number
 --- @param textAlignment any
@@ -10130,9 +10155,6 @@ function GetDefaultGuildRankName(guildId, rankIndex) end
 --- @param control userdata
 --- @return any
 function ZO_Help_Customer_Service_Gamepad_OnInitialize(control) end
---- @param linkType any
---- @return any
-function GetLinkLayoutHandlerName(linkType) end
 --- @return any
 function ZO_CraftingUtils_IsCraftingWindowOpen() end
 --- @param self userdata
@@ -10222,8 +10244,6 @@ function ZO_Gamepad_RepairKits_OnInitialize(control) end
 --- @param control userdata
 --- @return any
 function ZO_Skills_AbilityEntry_OnInitialized(control) end
---- @return any
-function AttemptToFireCharacterConstructionReady() end
 --- @param self userdata
 --- @param largeSize any
 --- @return any
@@ -10309,6 +10329,8 @@ function ZO_GamepadTypeBasedControl_OnInitialized(self) end
 function ZO_CampaignEmperorName_OnMouseExit(control) end
 --- @return any
 function ZO_CombinationPromptManager_ClearAllCombinationPrompts() end
+--- @return any
+function ZO_Pregame_RegisterForLoadingUpdates() end
 --- @param control userdata
 --- @return any
 function ZO_KeyboardAssignableActionBarButton_OnReceiveDrag(control) end
@@ -10320,8 +10342,6 @@ function ZO_LootPickup_Gamepad_Initialize(control) end
 --- @param worldName string
 --- @return any
 function ZO_WorldSelect_SelectWorldByName(worldName) end
---- @return any
-function IsInCharacterSelectCinematicState() end
 --- @param control userdata
 --- @param anchorToControl any
 --- @param theta any
@@ -10392,8 +10412,6 @@ function ZO_ConfirmRemoveGuildMemberDialog_Keyboard_OnInitialized(self) end
 function ZO_MultiIconAnimation_OnStop(timeline) end
 --- @return any
 function ZO_CreateLinkAccount_UpdateCreateAccountButton() end
---- @return any
-function AttemptToAdvancePastCharacterSelectCinematic() end
 --- @param estimatedTimeMs any
 --- @param formatType any
 --- @param precisionType any
@@ -10412,6 +10430,11 @@ function ZO_ArmoryBuildOverview_Gamepad_OnInitialized(control) end
 --- @param cursor any
 --- @return any
 function ZO_Scrying_FadeInCursor_OnEffectivelyShown(cursor) end
+--- @param year any
+--- @param month any
+--- @param day any
+--- @return any
+function ZO_FormatGregorianDate(year, month, day) end
 --- @param craftingMode any
 --- @return any
 function ZO_Smithing_IsConsolidatedStationCraftingMode(craftingMode) end
@@ -10502,11 +10525,8 @@ function ZO_SkillsAdvisor_BuildSelection_Keyboard_OnMouseClick(control, buttonIn
 function ZO_CraftingUtils_IsPerformingCraftProcess() end
 --- @return any
 function ZO_TributePatronUsageTooltip_Gamepad_GetControl() end
---- @param animation any
---- @param control userdata
---- @param completed any
 --- @return any
-function ZO_DuneBackgroundAnimation_Intro_OnStop(animation, control, completed) end
+function ZO_IsPreloginWorldEnabled() end
 --- @param control userdata
 --- @return any
 function ZO_AlertTextKeyboard_OnInitialized(control) end
@@ -10552,6 +10572,8 @@ function ZO_VerticalScrollbarBase_OnScrollAreaExit(self) end
 --- @return any
 function ZO_LinkHandler_CreateURLLink(url, displayText) end
 --- @return any
+function ZO_PregameStateManager_ShowLoginRequested() end
+--- @return any
 function ZO_CreateLinkAccount_OnAccountNameFocusLost() end
 --- @param editControl any
 --- @return any
@@ -10589,6 +10611,11 @@ function ZO_MarketProduct_GetMarketProductHouseTemplateDataList(marketProductId,
 --- @param slotType any
 --- @return any
 function ZO_InventorySlot_SetType(slotControl, slotType) end
+--- @param control userdata
+--- @param distanceFromCenter any
+--- @param continousParametricOffset number
+--- @return any
+function PerkGamepadMenuEntryTemplateParametricListFunction(control, distanceFromCenter, continousParametricOffset) end
 --- @param control userdata
 --- @return any
 function ZO_ActiveQuestToolMonitor_Initialize(control) end
@@ -10695,15 +10722,15 @@ function ZO_Login_TrustedSettings_OnMouseEnter(control) end
 function ZO_CenterScreenAnnounce_SetPriority(csaType, priority) end
 --- @return any
 function ZO_BuildHoursSinceMidnightPerHourTable() end
---- @param unitTag any
---- @return any
-function ZO_Group_GetGroupIndexFromUnitTag(unitTag) end
 --- @param self userdata
 --- @param keybind any
 --- @param callbackFunction function
 --- @param text any
 --- @return any
 function ZO_ChromaKeybindButtonTemplate_Setup(self, keybind, callbackFunction, text) end
+--- @param unitTag any
+--- @return any
+function ZO_Group_GetGroupIndexFromUnitTag(unitTag) end
 --- @param self userdata
 --- @return any
 function ZO_SelectSkillStyleDialog_DefaultStyle_Keyboard_OnMouseEnter(self) end
@@ -10895,8 +10922,14 @@ function GetKeepOwnershipChangedEventDescription(campaignId, keepId, oldOwner, n
 --- @param color any
 --- @param colorG any
 --- @param colorB any
+--- @param lineAnchor any
+--- @param modifyTextType any
+--- @param textAlignment any
+--- @param setToFullSize any
+--- @param minWidth any
+--- @param lineSpacing any
 --- @return any
-function SetTooltipText(tooltip, text, color, colorG, colorB) end
+function SetTooltipText(tooltip, text, color, colorG, colorB, lineAnchor, modifyTextType, textAlignment, setToFullSize, minWidth, lineSpacing) end
 --- @param control userdata
 --- @return any
 function ZO_Skills_SkillLineInfo_Shared_OnInitialized(control) end
@@ -11097,8 +11130,6 @@ function ZO_CrownGemificationRow_OnMouseUp(self, button, upInside) end
 --- @return any
 function ZO_Menu_OnHide(control) end
 --- @return any
-function PregameStateManager_CanHideGui() end
---- @return any
 function ZO_ContextualActionBar_AddReference() end
 --- @param ... any
 --- @return any
@@ -11141,6 +11172,11 @@ function ZO_ApplyEnchant_OnInitialize(control) end
 --- @param animationTimerData any
 --- @return any
 function ZO_GetChromaAnimationTimer(animationTimerData) end
+--- @param subgroupIndex number
+--- @param groupStride any
+--- @param constants any
+--- @return any
+function ZO_UnitFrames_GetGroupAnchorFrameOffsets(subgroupIndex, groupStride, constants) end
 --- @param self userdata
 --- @return any
 function ZO_GiftInventory_Keyboard_OnInitialized(self) end
@@ -11163,6 +11199,9 @@ function ZO_ScrollList_RefreshVisibleByIndices(self, indices, overrideSetupCallb
 --- @param control userdata
 --- @return any
 function ZO_KeyboardAssignableActionBarButton_OnDragStart(control) end
+--- @param marketProductId number
+--- @return any
+function GetMarketProductUnlockedByAchievementInfo(marketProductId) end
 --- @param listDescriptionStringName string
 --- @param entryData any
 --- @return any
@@ -11176,6 +11215,9 @@ function ZO_GamepadSkillLinePreview_AbilityEntry_OnInitialized(control) end
 --- @param eventId number
 --- @return any
 function ZO_CenterScreenAnnounce_GetQueueableHandler(eventId) end
+--- @param control userdata
+--- @return any
+function ZO_LoreReader_OnShow(control) end
 --- @param control userdata
 --- @return any
 function ZO_GamepadOptions_OnInitialize(control) end
@@ -11317,10 +11359,6 @@ function ZO_Tribute_PlayerInfoDisplay_OnInitialized(control) end
 --- @param progress any
 --- @return any
 function ZO_CompanionEquipment_Keyboard_NewItemCategory_FlashAnimation_OnUpdate(self, progress) end
---- @param animation any
---- @param progress any
---- @return any
-function ZO_MagmaBackgroundAnimation_FloraLoop_OnUpdate(animation, progress) end
 --- @param slotControl any
 --- @param stackCount any
 --- @param iconFile any
@@ -11331,9 +11369,6 @@ function ZO_Inventory_SetupSlot(slotControl, stackCount, iconFile, meetsUsageReq
 --- @param control userdata
 --- @return any
 function ZO_CollectibleRenameDialog_HideViolations(control) end
---- @param control userdata
---- @return any
-function ZO_RetraitStation_Gamepad_Initialize(control) end
 --- @param self userdata
 --- @param left any
 --- @param right any
@@ -11341,6 +11376,9 @@ function ZO_RetraitStation_Gamepad_Initialize(control) end
 --- @param bottom any
 --- @return any
 function ZO_KeyMarkupLabel_SetCustomOffsets(self, left, right, top, bottom) end
+--- @param control userdata
+--- @return any
+function ZO_RetraitStation_Gamepad_Initialize(control) end
 --- @return any
 function ZO_UIErrors_ToggleSuppressDialog() end
 --- @param control userdata
@@ -11440,6 +11478,9 @@ function ZO_Dialogs_IsShowingDialog() end
 --- @param animateInstantly any
 --- @return any
 function ZO_ScrollList_SelectData(self, data, control, reselectingDuringRebuild, animateInstantly) end
+--- @param currencyType any
+--- @return any
+function ZO_PlayCurrencyTransactSound(currencyType) end
 --- @param editBox any
 --- @return any
 function ZO_ConsolidatedSmithingSets_Keyboard_OnSearchTextChanged(editBox) end
@@ -11531,6 +11572,9 @@ function ZO_TranslateFromBottomSceneAnimation_OnPlay(self, animatingControl) end
 --- @param control userdata
 --- @return any
 function ZO_MouseTooltipBehavior_OnInitialized(control) end
+--- @param sceneName string
+--- @return any
+function ZO_Pregame_ShowScene(sceneName) end
 --- @param self userdata
 --- @return any
 function ConfirmLinkAccountScreen_Gamepad_Initialize(self) end
@@ -11543,11 +11587,6 @@ function ZO_KeyboardGuildRoster_ToggleHideOffline(self) end
 --- @param argumentTable any
 --- @return any
 function ZO_GenerateNewlineSeparatedList(argumentTable) end
---- @param animation any
---- @param control userdata
---- @param completed any
---- @return any
-function ZO_DuneBackgroundAnimation_Intro_OnPlay(animation, control, completed) end
 --- @return any
 function ZO_Smithing_GetActiveObject() end
 --- @param control userdata
@@ -11577,8 +11616,6 @@ function ZO_IgnoreListRow_OnMouseEnter(control) end
 --- @param unitTag any
 --- @return any
 function ZO_Group_IsGroupUnitTag(unitTag) end
---- @return any
-function IsPlayingChapterOpeningCinematic() end
 --- @param control userdata
 --- @return any
 function ZO_MouseTooltipBehavior_OnMouseExit(control) end
@@ -11665,6 +11702,9 @@ function zo_iconFormat(path, width, height) end
 --- @param lastHeader any
 --- @return any
 function GetNextDyeHeaderOffsetY(maxOffsetY, lastHeader) end
+--- @param control userdata
+--- @return any
+function ZO_Skills_SubclassSkillLine_Untrain_OnMouseEnter(control) end
 --- @param self userdata
 --- @return any
 function ZO_CampaignLeaderboardsInformationArea_Gamepad_OnInitialized(self) end
@@ -11710,6 +11750,9 @@ function ZO_GuildRecruitment_ApplicationsList_Row_OnMouseUp(control, button, upI
 --- @param value any
 --- @return any
 function ZO_ChatSystem_SetScroll(control, value) end
+--- @param control userdata
+--- @return any
+function GetTextColor(control) end
 --- @param characterData any
 --- @return any
 function ZO_CharacterSelect_BeginRename(characterData) end
@@ -12004,6 +12047,9 @@ function ZO_SharedGamepadEntry_SetHeightFromLabelOnly(control) end
 function ZO_GetGamepadChampionPointsIcon() end
 --- @return any
 function ZO_HelpItemAssistance_Keyboard_AttemptToSendTicket() end
+--- @param linkType any
+--- @return any
+function ZO_GetLinkLayoutHandlerName(linkType) end
 --- @param control userdata
 --- @param button userdata
 --- @param upInside any
@@ -12058,9 +12104,6 @@ function InitializeTooltip(tooltip, owner, point, offsetX, offsetY, relativePoin
 function ZO_BattlegroundHUDFragmentTopLevel_Initialize(control) end
 --- @return any
 function GetLatestAttributeRespecNote() end
---- @param ... any
---- @return any
-function AddFurnishingCategory(...) end
 --- @param self userdata
 --- @param areaData any
 --- @param areaText any
@@ -12070,20 +12113,20 @@ function AddFurnishingCategory(...) end
 --- @param bottom any
 --- @return any
 function ZO_LargeKeyMarkupLabel_OnNewUserAreaCreated(self, areaData, areaText, left, right, top, bottom) end
---- @param control userdata
---- @param selected any
+--- @param ... any
 --- @return any
-function ZO_Options_SetupSlider(control, selected) end
+function AddFurnishingCategory(...) end
 --- @param self userdata
 --- @param typeId number
 --- @return any
 function ZO_ScrollList_GetDataTypeTable(self, typeId) end
+--- @param control userdata
+--- @param selected any
+--- @return any
+function ZO_Options_SetupSlider(control, selected) end
 --- @param targetMarker any
 --- @return any
 function ZO_GetPlatformTargetMarkerIcon(targetMarker) end
---- @param control userdata
---- @return any
-function ZO_ArmoryActionButton_Keyboard_OnMouseEnter(control) end
 --- @param control userdata
 --- @return any
 function ZO_GroupListRowChampion_OnMouseEnter(control) end
@@ -12305,6 +12348,10 @@ function ZO_CampaignBonuses_CountInfo_OnMouseExit() end
 --- @param control userdata
 --- @return any
 function ZO_VoiceChatHUDGamepad_OnInitialize(control) end
+--- @param valueOrFunction function
+--- @param ... any
+--- @return any
+function ZO_Eval(valueOrFunction, ...) end
 --- @param control userdata
 --- @return any
 function ZO_ChatSystem_OnResizeStop(control) end
@@ -12336,8 +12383,5 @@ function ZO_CampaignBrowserQueueRow_OnMouseDoubleClick(control) end
 --- @param otherControl any
 --- @return any
 function ZO_Scroll_ScrollControlIntoView(self, otherControl) end
---- @param self userdata
---- @return any
-function ZO_BadlandsBackground_OnInitialized(self) end
 
 SLASH_COMMANDS = {}
